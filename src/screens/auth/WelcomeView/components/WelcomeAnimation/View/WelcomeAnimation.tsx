@@ -7,25 +7,27 @@
 
 //import library section
 import React from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 import LottieView from 'lottie-react-native';
 
 // import lottie section
-const pokeball = require('../../../../../../assets/lottie/pokeball.json')
+const pokeball = require('../../../../../../assets/pictures/pokeball.png')
 
 const WelcomeAnimation = () => {
     return (
-        <SafeAreaView style={styles.mainContainer}>
-            <LottieView source={pokeball} autoPlay style={styles.lottie}/>
-        </SafeAreaView>
+        <View style={styles.mainContainer}>
+            <Image source={pokeball} style={styles.image}/>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
     mainContainer: {
-
+        flex:1,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-    lottie: {
+    image: {
         transform: [{
             scale: 0.75
         }]

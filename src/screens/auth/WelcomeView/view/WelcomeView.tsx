@@ -31,6 +31,7 @@ const WelcomeView = () => {
                 <View style={styles.loginContainer}>
                 </View>
             </SafeAreaView>
+
     )
 }
 const styles = StyleSheet.create({
