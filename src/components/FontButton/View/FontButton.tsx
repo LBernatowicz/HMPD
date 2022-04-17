@@ -32,6 +32,7 @@ const FontButton = ({title, font, fColor, fOpacity, fSize, externalStyles}: Prop
                     fOpacity={fOpacity}
                     externalStyle={externalStyles}
                 />
+
             </TouchableOpacity>
         </SafeAreaView>
     )
