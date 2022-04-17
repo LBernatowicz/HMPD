@@ -8,16 +8,14 @@
 //import library section
 import React from 'react';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
-import LottieView from 'lottie-react-native'
 
 // import component and interfaces section
-import LoginContainer  from '../components/LoginContainer/View/LoginContainer'
 import {GLOBAL_COLORS} from '../../../../ui/colors/colors';
 import TitleContainer from '../components/TitleContainer/View/TitleContainer';
 import WelcomeAnimation from '../components/WelcomeAnimation/View/WelcomeAnimation';
+import LoginContainer from '../components/LoginContainer/View/LoginContainer';
 
-//lottie animation section
-const pokeball = require('../../../../assets/lottie/pokeball.json')
+
 
 const WelcomeView = () => {
     return (
@@ -29,6 +27,7 @@ const WelcomeView = () => {
                     <WelcomeAnimation/>
                 </View>
                 <View style={styles.loginContainer}>
+                    <LoginContainer/>
                 </View>
             </SafeAreaView>
 
@@ -44,7 +43,6 @@ const styles = StyleSheet.create({
     },
     lottieContainer: {
         flex:4,
-        backgroundColor: GLOBAL_COLORS.secondary,
         padding: 20,
     },
     loginContainer: {
