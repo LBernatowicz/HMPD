@@ -40,6 +40,12 @@ const FontButton = ({title, font, fColor, fOpacity, fSize, externalStyles}: Prop
 const styles = StyleSheet.create({
     mainContainer: {
         flex:1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    buttonContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 })
 
