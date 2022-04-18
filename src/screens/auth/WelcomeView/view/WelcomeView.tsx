@@ -14,10 +14,15 @@ import {GLOBAL_COLORS} from '../../../../ui/colors/colors';
 import TitleContainer from '../components/TitleContainer/View/TitleContainer';
 import WelcomeAnimation from '../components/WelcomeAnimation/View/WelcomeAnimation';
 import LoginContainer from '../components/LoginContainer/View/LoginContainer';
+import {NavigationContainerProps} from '@react-navigation/native';
+
+type Props = {
+    navigation: NavigationContainerProps;
+}
 
 
 
-const WelcomeView = () => {
+const WelcomeView = ({navigation}: Props) => {
     return (
             <SafeAreaView style={styles.mainContainer}>
                 <View style={styles.headerContainer}>
@@ -27,7 +32,7 @@ const WelcomeView = () => {
                     <WelcomeAnimation/>
                 </View>
                 <View style={styles.loginContainer}>
-                    <LoginContainer/>
+                    <LoginContainer navigation={navigation}/>
                 </View>
             </SafeAreaView>
 
