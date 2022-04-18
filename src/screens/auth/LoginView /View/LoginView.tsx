@@ -12,14 +12,17 @@ import StyledText from '../../../../components/StyledText/View/StyledText';
 const LoginView = () => {
     return (
         <SafeAreaView>
-            <StyledText title={'Logowanie'}/>
+            <StyledText title={'Log in to youre account'}/>
         </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
     mainContainer: {
-
+        flex:1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'red',
     }
 })
 
