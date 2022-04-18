@@ -12,7 +12,7 @@ import StyledText from '../../../../components/StyledText/View/StyledText';
 const LoginView = () => {
     return (
         <SafeAreaView>
-            <StyledText title={'Logowanie'}/>
+            <StyledText title={'Log in to youre account'}/>
         </SafeAreaView>
     )
 }
