@@ -36,6 +36,7 @@ const LoginContainer = ({navigation}: Props) => {
                  title={authType ? 'Create Account' : 'Login to Pokedex'}
                  onPress={()=> navigation.navigate(authType ? 'Login' : 'CreateAccount')}
              />
+
            </View>
             <View style={styles.underTextComponent}>
                 <View style={styles.styledTextContainer}>
