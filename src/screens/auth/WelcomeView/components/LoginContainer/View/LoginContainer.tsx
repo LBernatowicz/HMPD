@@ -5,7 +5,7 @@
  * 17.04.2022
  */
 
-import * as React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet,View} from 'react-native';
 import PrimaryButton from '../../../../../../components/PrimaryButton/View/PrimaryButton';
 import colors, {GLOBAL_COLORS} from '../../../../../../ui/colors/colors';
@@ -13,25 +13,40 @@ import StyledText from '../../../../../../components/StyledText/View/StyledText'
 import {GLOBAL_FONTS, GLOBAL_FONTSIZES} from '../../../../../../ui/fonts/fonts';
 import FontButton from '../../../../../../components/FontButton/View/FontButton';
 
+
 const LoginContainer = () => {
+    // hooks section
+    const [authType, setAuthType] = useState<boolean>(true)
+
+    //functions section
+    const handleAuthType = () => {
+        setAuthType(!authType)
+    }
+
     return (
         <View style={styles.loginContainer}>
            <View style={styles.buttonContainer}>
-             <PrimaryButton title={'Create Account'}/>
+             <PrimaryButton title={authType ? 'Create Account' : 'Login to Pokedex'}/>
            </View>
             <View style={styles.underTextComponent}>
-                <StyledText
-                    title={'Already have an account?'}
-                    fColor={GLOBAL_COLORS.white}
-                    font={GLOBAL_FONTS.ROBOTO}
-                    fSize={GLOBAL_FONTSIZES.description}
-                />
-                <FontButton
-                    title={'Login'}
-                    fColor={GLOBAL_COLORS.fourth}
-                    font={GLOBAL_FONTS.ROBOTO}
-                    fSize={GLOBAL_FONTSIZES.description}
-                />
+                <View style={styles.styledTextContainer}>
+                    <StyledText
+                        title={authType ? 'Already have an account?' : 'Login to your account'}
+                        fColor={GLOBAL_COLORS.white}
+                        font={GLOBAL_FONTS.ROBOTO}
+                        fSize={GLOBAL_FONTSIZES.description}
+                        externalStyle={styles.externalStyledText}
+                    />
+                </View>
+                <View style={styles.fontButtonContainer}>
+                    <FontButton
+                        title={authType ? 'Login' : 'Create'}
+                        fColor={GLOBAL_COLORS.fourth}
+                        font={GLOBAL_FONTS.ROBOTO}
+                        fSize={GLOBAL_FONTSIZES.description}
+                        onPress={handleAuthType}
+                    />
+                </View>
             </View>
         </View>
     )
@@ -53,10 +68,22 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         flex:1,
+        width: '90%',
     },
     buttonContainer:{
       width: '90%',
         flex:1,
+    },
+    styledTextContainer: {
+        flex: 3,
+        alignItems: 'flex-end'
+    },
+    fontButtonContainer: {
+        flex:2,
+        alignItems: 'flex-start'
+    },
+    externalStyledText: {
+        textAlign: 'center',
     },
 })
 export default LoginContainer;
