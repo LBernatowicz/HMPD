@@ -7,28 +7,61 @@
 
 //import library section
 import React from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
-import LottieView from 'lottie-react-native';
+import {Image, StyleSheet, View} from 'react-native';
 
 // import lottie section
-const pokeball = require('../../../../../../assets/lottie/pokeball.json')
+const pokeball = require('../../../../../../assets/pictures/pokeball.png')
+const pikachu = require('../../../../../../assets/pictures/pikachu_under_pokeball.png')
+
+
 
 const WelcomeAnimation = () => {
     return (
-        <SafeAreaView style={styles.mainContainer}>
-            <LottieView source={pokeball} autoPlay style={styles.lottie}/>
-        </SafeAreaView>
+        <View style={styles.mainContainer}>
+            <View style={styles.imageContainer}>
+                <Image source={pokeball} style={styles.pokeballImage}/>
+            </View>
+            <View style={styles.imageContainer}>
+                <Image source={pikachu} style={styles.pikachuImage}/>
+            </View>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
     mainContainer: {
-
+        flex:1,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-    lottie: {
+    imageContainer: {
+        position: 'absolute',
+    },
+    pokeballImage: {
         transform: [{
-            scale: 0.75
-        }]
+            scale: 0.1
+        }],
+        right: 10
+    },
+    pikachuImage: {
+        transform: [{
+            scale: 0.3
+        }],
+        bottom: '25%',
+    },
+    meowImage: {
+        transform: [{
+            scale: 0.5
+        }],
+        left: '35%',
+        top: '30%',
+    },
+    bulbazaurImage: {
+        transform: [{
+            rotateY: '180deg',
+        }],
+        left: '35%',
+        top: '30%',
     },
 })
 
