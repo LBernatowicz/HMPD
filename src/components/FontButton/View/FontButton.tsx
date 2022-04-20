@@ -19,11 +19,14 @@ type Props = {
     fColor?: string;
     fOpacity?: number;
     externalStyles?: StyleProp<ViewStyle>
+    onPress?: ()=>void;
 }
-const FontButton = ({title, font, fColor, fOpacity, fSize, externalStyles}: Props) => {
+const FontButton = ({title, font, fColor, fOpacity, fSize, externalStyles, onPress}: Props) => {
     return (
         <SafeAreaView style={styles.mainContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity
+                onPress={onPress}
+            >
                 <StyledText
                     title={title}
                     font={font}
@@ -40,14 +43,9 @@ const FontButton = ({title, font, fColor, fOpacity, fSize, externalStyles}: Prop
 
 const styles = StyleSheet.create({
     mainContainer: {
-        flex:1,
         justifyContent: 'center',
         alignItems: 'center',
     },
-    buttonContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-    }
 })
 
 export default FontButton;

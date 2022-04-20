@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import {View, Text, StyleSheet, StyleProp, ViewStyle} from 'react-native';
+import {View, Text, StyleSheet, StyleProp, TextStyle} from 'react-native';
 import {GLOBAL_FONTS, GLOBAL_FONTSIZES} from '../../../ui/fonts/fonts';
 import GLOBAL_COLORS from '../../../ui/colors/colors';
 
@@ -16,11 +16,11 @@ type Props = {
     fColor?: string;  // colors form GLOBAL_COLORS
     fSize?: number; // font size from GLOBAL_FONTSIZE
     fOpacity?: number; // font opacity
-    externalStyle?: StyleProp<ViewStyle> // external font style
+    externalStyle?: StyleProp<TextStyle> // external font style
 }
 
 const StyledText = ({title, externalStyle, font, fColor, fSize, fOpacity}: Props) => {
-    const dynamicStyle = externalStyle ? externalStyle : styles.text
+    const dynamicStyle = externalStyle
     const dynamicColor = fColor ? fColor : GLOBAL_COLORS.primary
     const dynamicFontSize = fSize ? fSize : GLOBAL_FONTSIZES.header
     const dynamicFont = font ? font : GLOBAL_FONTS.ROBOTO
@@ -29,6 +29,7 @@ const StyledText = ({title, externalStyle, font, fColor, fSize, fOpacity}: Props
         <View style={styles.mainContainer}>
             <Text style={[
                 dynamicStyle,
+                styles.text,
                 {
                     color: dynamicColor,
                     fontSize: dynamicFontSize,
@@ -43,7 +44,7 @@ const StyledText = ({title, externalStyle, font, fColor, fSize, fOpacity}: Props
 
 const styles = StyleSheet.create({
     mainContainer: {
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
     },
     text: {
         fontFamily: GLOBAL_FONTS.ROBOTO,
@@ -51,6 +52,7 @@ const styles = StyleSheet.create({
         opacity: 1,
         paddingVertical: 5,
         paddingHorizontal: 10,
+
     }
 });
 
