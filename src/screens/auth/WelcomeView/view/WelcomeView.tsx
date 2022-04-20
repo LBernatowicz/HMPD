@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     lottieContainer: {
         flex:4,
         padding: 20,
+        top: '5%',
     },
     loginContainer: {
         flex:1,
