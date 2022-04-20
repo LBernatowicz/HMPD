@@ -6,13 +6,22 @@
  */
 
 import React from 'react';
-import {SafeAreaView, View, StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import StyledText from '../../../../components/StyledText/View/StyledText';
+import ContainerHeader from '../../../../components/ContainerHeader/View/ContainerHeader';
 
-const CreateAccountView = () => {
+type Props = {
+    navigation: any
+}
+const CreateAccountView = ({navigation}: Props) => {
     return (
-        <SafeAreaView>
-            <StyledText title={'Creating an account'}/>
+        <SafeAreaView style={styles.mainContainer}>
+            <ContainerHeader
+                title={'Login'}
+                exitButton={false}
+                navigation={navigation}
+            />
+            <StyledText title={'Log in to youre account'}/>
         </SafeAreaView>
     )
 }

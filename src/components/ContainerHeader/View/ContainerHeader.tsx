@@ -11,19 +11,40 @@ import StyledText from '../../StyledText/View/StyledText';
 import CircleArrow from '../../../assets/svg/CircleArrow';
 import hairlineWidth = StyleSheet.hairlineWidth;
 import Exit from '../../../assets/svg/Exit';
+import GLOBAL_COLORS from '../../../ui/colors/colors';
 
-const ContainerHeader = () => {
+type Props = {
+    exitButton?: boolean
+    title: string
+    handleExit?: ()=>void;
+    navigation?: any;
+}
+
+const ContainerHeader = ({exitButton, title, handleExit, navigation}: Props) => {
+    // function section
+    const handleBack = () => navigation.goBack();
+
     return (
         <SafeAreaView style={styles.mainContainer}>
-            <TouchableOpacity style={styles.backContainer}>
+            <TouchableOpacity
+                onPress={handleBack}
+                style={styles.backContainer}
+            >
                 <CircleArrow style={styles.backSvg}/>
             </TouchableOpacity>
             <View style={styles.titleContainer}>
-                <StyledText title={'Login'}/>
+                <StyledText title={title}/>
             </View>
-            <TouchableOpacity style={styles.exitContainer}>
-                <Exit/>
-            </TouchableOpacity>
+            {exitButton ?
+                <TouchableOpacity
+                    onPress={handleExit}
+                    style={styles.exitContainer}
+                >
+                    <Exit/>
+                </TouchableOpacity>
+                :
+                <View style={styles.exitContainer}/>
+            }
         </SafeAreaView>
     )
 }
@@ -31,6 +52,7 @@ const ContainerHeader = () => {
 const styles = StyleSheet.create({
     mainContainer: {
         flexDirection: 'row',
+        backgroundColor: GLOBAL_COLORS.white,
         height: 60,
         borderBottomWidth: hairlineWidth,
         alignItems: 'center',
@@ -38,19 +60,16 @@ const styles = StyleSheet.create({
     backContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'yellow',
         flex:1,
     },
     titleContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'red',
         flex:4,
     },
     exitContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'green',
         flex:1,
     },
     backSvg: {
