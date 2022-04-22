@@ -6,10 +6,9 @@
  */
 
 import React from 'react';
-import {SafeAreaView, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {SafeAreaView, StyleProp, StyleSheet, TouchableOpacity, View, ViewProps} from 'react-native';
 import StyledText from '../../StyledText/View/StyledText';
 import CircleArrow from '../../../assets/svg/CircleArrow';
-import hairlineWidth = StyleSheet.hairlineWidth;
 import Exit from '../../../assets/svg/Exit';
 import GLOBAL_COLORS from '../../../ui/colors/colors';
 
@@ -18,14 +17,15 @@ type Props = {
     title: string
     handleExit?: ()=>void;
     navigation?: any;
+    externalStyle?: StyleProp<ViewProps>
 }
 
-const ContainerHeader = ({exitButton, title, handleExit, navigation}: Props) => {
+const ContainerHeader = ({exitButton, title, handleExit, navigation, externalStyle}: Props) => {
     // function section
     const handleBack = () => navigation.goBack();
 
     return (
-        <SafeAreaView style={styles.mainContainer}>
+        <SafeAreaView style={[styles.mainContainer, externalStyle]}>
             <TouchableOpacity
                 onPress={handleBack}
                 style={styles.backContainer}
@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: GLOBAL_COLORS.white,
         height: 60,
-        borderBottomWidth: hairlineWidth,
         alignItems: 'center',
     },
     backContainer: {
