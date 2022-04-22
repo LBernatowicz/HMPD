@@ -5,19 +5,44 @@
  * 19.04.2022
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {SafeAreaView, View, StyleSheet, Image} from 'react-native';
 import StyledText from '../../../../components/StyledText/View/StyledText';
 import ContainerHeader from '../../../../components/ContainerHeader/View/ContainerHeader';
-import GLOBAL_COLORS from '../../../../ui/colors/colors';
 import StyledInput from '../../../../components/StyledInput/View/StyledInput';
 import PrimaryButton from '../../../../components/PrimaryButton/View/PrimaryButton';
+import Locker from '../../../../assets/svg/Locker';
 
 type Props = {
     navigation: any
 }
 const LoginView = ({navigation}: Props) => {
+    const [login, setLogin] = useState<string>('')
+    const [password, setPassword] = useState<string>('')
+    const [showPassword, setShowPassword] = useState<boolean>(true)
+    const [visibleWarningMessage, setVisibleWarningMessage] = useState({
+        loginWarningMessage: false,
+        passwordWarningMessage: false
+    })
+    const [verify, setVerify] = useState({
+        login: false,
+        password: false
+    })
+
     const loginImage = require('../../../../assets/pictures/squirtle.png')
+
+    const handleShowPassword = () => {
+        setShowPassword(false)
+        setTimeout(()=>setShowPassword(true),2000)
+    }
+
+    const handleAccess = () => {
+        if (login === 'admin' && password === '12345') {console.log('dane poprawne')}
+        else if(login === 'admin' && password !== '12345') {console.log('złe hasło')}
+        else if(login !== 'admin' && password === '12345') {console.log('zły login')}
+        else if(login !== 'admin' && password === '12345') {console.log('zły login')}
+    }
+
     return (
         <SafeAreaView style={styles.mainContainer}>
             <ContainerHeader
@@ -33,18 +58,31 @@ const LoginView = ({navigation}: Props) => {
                     <StyledText title={'Log in to youre account'}/>
                     <View style={styles.input} >
                         <StyledInput
-                            value={'Dupa'}
-                            title={'dasdas'}
-                            label={'Podaj login'}/>
+                            value={login}
+                            title={'login...'}
+                            label={'Your login'}
+                            warningLabel={'Wrong login!'}
+                            visibleWarning={visibleWarningMessage.loginWarningMessage}
+                            onChangeText={(value) => setLogin(value)}
+                        />
                         <StyledInput
-                            secure={true}
-                            title={'dasdas'}
+                            secure={showPassword}
+                            icon={<Locker/>}
+                            iconPress={handleShowPassword}
+                            value={password}
+                            title={'password...'}
+                            label={'Your password'}
+                            warningLabel={'Wrong password!'}
+                            visibleWarning={visibleWarningMessage.passwordWarningMessage}
+                            onChangeText={(value) => setPassword(value)}
                         />
                     </View>
                     <View style={styles.buttonContainer}>
-                        <PrimaryButton title={'Zaloguj'}/>
+                        <PrimaryButton
+                            onPress={handleAccess}
+                            title={'Zaloguj'}
+                        />
                     </View>
-
                 </View>
             </View>
         </SafeAreaView>
@@ -55,7 +93,6 @@ const styles = StyleSheet.create({
     mainContainer: {
         flex:1,
         alignItems: 'center',
-        backgroundColor: GLOBAL_COLORS.white,
     },
     bodyContainer: {
         width: '90%',
@@ -66,7 +103,7 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent: 'center',
         flex:1,
-        margin: 20,
+        margin: 30,
     },
     image: {
         transform: [{
@@ -85,7 +122,6 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         width: '100%',
-        marginVertical:10,
     }
 })
 

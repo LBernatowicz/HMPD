@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
         opacity: 1,
         paddingVertical: 5,
         paddingHorizontal: 10,
-
     }
 });
 
