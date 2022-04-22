@@ -25,8 +25,8 @@ const LoginView = ({navigation}: Props) => {
         passwordWarningMessage: false
     })
     const [verify, setVerify] = useState({
-        login: false,
-        password: false
+        login: true,
+        password: true
     })
 
     const loginImage = require('../../../../assets/pictures/squirtle.png')
@@ -37,10 +37,17 @@ const LoginView = ({navigation}: Props) => {
     }
 
     const handleAccess = () => {
-        if (login === 'admin' && password === '12345') {console.log('dane poprawne')}
-        else if(login === 'admin' && password !== '12345') {console.log('złe hasło')}
-        else if(login !== 'admin' && password === '12345') {console.log('zły login')}
-        else if(login !== 'admin' && password === '12345') {console.log('zły login')}
+        if (login === 'admin' && password === '12345') {
+            console.log('dane poprawne')
+            handleVerify
+        }
+        else if (login === 'admin' && password !== '12345') {console.log('złe hasło')}
+        else if (login !== 'admin' && password === '12345') {console.log('zły login')}
+        else if (login !== 'admin' && password === '12345') {console.log('zły login')}
+    }
+
+    const handleVerify = () => {
+        if ((verify.login && verify.password)) navigation.navigate('Account', {screen: 'HomeView'})
     }
 
     return (
@@ -79,7 +86,7 @@ const LoginView = ({navigation}: Props) => {
                     </View>
                     <View style={styles.buttonContainer}>
                         <PrimaryButton
-                            onPress={handleAccess}
+                            onPress={handleVerify}
                             title={'Zaloguj'}
                         />
                     </View>

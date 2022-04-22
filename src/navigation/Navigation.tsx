@@ -10,6 +10,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import AuthStack from './route/AuthStack';
+import AccountStack from './route/AccountStack';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ const Navigation = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Auth" screenOptions={{headerShown: false}}>
         <Stack.Screen component={AuthStack} name="Auth" />
+        <Stack.Screen component={AccountStack} name="Account"/>
       </Stack.Navigator>
     </NavigationContainer>
   );
