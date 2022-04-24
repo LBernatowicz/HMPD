@@ -23,6 +23,8 @@ target 'HMPD' do
 
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
   target 'HMPDTests' do
     inherit! :complete
     # Pods for testing
