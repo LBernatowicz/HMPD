@@ -14,7 +14,9 @@ const PokedexStack = () => {
     return (
         <Stack.Navigator
             initialRouteName="PokedexView"
-            screenOptions={{headerShown: false}}
+            screenOptions={{
+                headerShown: false,
+        }}
         >
             <Stack.Screen name={'PokedexView'} component={PokedexView}/>
         </Stack.Navigator>
