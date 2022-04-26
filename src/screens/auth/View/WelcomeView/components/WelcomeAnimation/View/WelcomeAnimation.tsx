@@ -10,7 +10,7 @@ import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 
 // import lottie section
-const pokeball = require('../../../../../../../assets/pictures/pokeball.png')
+const pokeball = require('../../../../../../../assets/pictures/Pokeball2.png')
 const pikachu = require('../../../../../../../assets/pictures/pikachu_under_pokeball.png')
 
 

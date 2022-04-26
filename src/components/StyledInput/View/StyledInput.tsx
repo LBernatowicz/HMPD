@@ -31,6 +31,7 @@ type Props = {
     labelColor?: string;
     labelOpacity?: number;
     labelStyle?: StyleProp<TextStyle>
+    inputStyle?: StyleProp<TextStyle>
     value?: string;
     onChangeText?: ( text: string)=>void
     secure?: boolean;
@@ -45,6 +46,7 @@ const StyledInput = ({
                          labelColor,
                          labelOpacity,
                          labelStyle,
+                         inputStyle,
                          value,
                          onChangeText,
                          secure,
@@ -76,7 +78,7 @@ const StyledInput = ({
                     secureTextEntry={secure}
                     keyboardType={keyboardType}
                     placeholder={title}
-                    style={styles.input}
+                    style={inputStyle ? inputStyle : styles.input}
                     {...rest}
                 />
                 {icon &&

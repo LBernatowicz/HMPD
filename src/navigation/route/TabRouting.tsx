@@ -45,7 +45,12 @@ const TabRouting = () => {
                 options={{
                     tabBarIcon: ({focused}) => (
                         <View style={{position: 'absolute', top: '30%', justifyContent: 'center', alignItems: 'center'}}>
+                            {focused ? <View style={{height: 60, width: 60, borderRadius: 30, bottom: 5, backgroundColor:GLOBAL_COLORS.third, justifyContent: 'center', alignItems: 'center'}}>
                             <Image source={require('../../assets/pictures/pokedex-icon-13.png')} style={{width: 50, height: 50}}/>
+                            </View>
+                            :
+                                <Image source={require('../../assets/pictures/pokedex-icon-13.png')} style={{width: 50, height: 50}}/>
+                            }
                         </View>
                         )
                 }}
@@ -55,7 +60,7 @@ const TabRouting = () => {
                 component={HomeStack}
                 options={{
                     tabBarIcon: ({ focused}) => (
-                        <View style={{width: 70, height: 70, backgroundColor: GLOBAL_COLORS.fourth, borderRadius: 35, bottom: '40%', justifyContent: 'center',alignItems: 'center'}}>
+                        <View style={{ width: 70, height: 70, backgroundColor: focused ? GLOBAL_COLORS.third : GLOBAL_COLORS.fourth, borderRadius: 35, bottom: '40%', justifyContent: 'center',alignItems: 'center'}}>
                             <Image source={require('../../assets/pictures/pokeball.png')} style={{width: 70, height: 70}}/>
                         </View>
                     )
@@ -65,9 +70,14 @@ const TabRouting = () => {
                 name={'Fight'}
                 component={FightStack}
                 options={{
-                    tabBarIcon: ({ focused}) => (
-                        <View style={{width: 70, height: 70, backgroundColor: GLOBAL_COLORS.fourth, borderRadius: 35, bottom: '40%', justifyContent: 'center',alignItems: 'center'}}>
-                            <Image source={require('../../assets/pictures/pokeball.png')} style={{width: 70, height: 70}}/>
+                    tabBarIcon: ({focused}) => (
+                        <View style={{position: 'absolute', top: '25%', justifyContent: 'center', alignItems: 'center'}}>
+                            {focused ? <View style={{height: 60, width: 60, borderRadius: 30,bottom: 5, backgroundColor:GLOBAL_COLORS.third, justifyContent: 'center', alignItems: 'center'}}>
+                                    <Image source={require('../../assets/pictures/fist.png')} style={{width: 35, height: 35}}/>
+                                </View>
+                                :
+                                <Image source={require('../../assets/pictures/fist.png')} style={{width: 35, height: 35, top: 8,}}/>
+                            }
                         </View>
                     )
                 }}

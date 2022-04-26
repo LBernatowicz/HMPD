@@ -5,17 +5,19 @@
  * 22.04.2022
  */
 
-
 import React from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
-import StyledText from '../../../../../components/StyledText/View/StyledText';
-import GLOBAL_COLORS from '../../../../../ui/colors/colors';
-import NavBar from '../../../../../components/NavBar/View/NavBar';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
+import SearchContainer from '../../../../../components/SearchContainer/View/SearchContainer';
+import PokemonCard from '../../../components/PokemonCard/View/PokemonCard';
 
 const HomeView = () => {
     return (
         <SafeAreaView style={styles.mainContainer}>
-            <StyledText title={'home screen'} fColor={GLOBAL_COLORS.white}/>
+                <SearchContainer
+                    title={'Pokedex'}
+                    subTitle={'Search pokemon from pokedex or something what ever you want from pokemon world'}
+                    placeholder={'Search your pokemon'}
+                />
         </SafeAreaView>
     )
 }
@@ -23,9 +25,6 @@ const HomeView = () => {
 const styles = StyleSheet.create({
     mainContainer: {
         flex:1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: GLOBAL_COLORS.primary
     }
 })
 
