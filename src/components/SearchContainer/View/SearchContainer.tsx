@@ -48,7 +48,9 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 20,
         borderBottomLeftRadius: 20,
         height: '30%',
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
+        elevation: 4,
+        zIndex: 4,
     },
     searchContainer: {
         marginHorizontal: 10,
