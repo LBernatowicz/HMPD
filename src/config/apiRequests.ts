@@ -5,7 +5,7 @@ import {wrongStatusSwitch} from './status';
 export const getData = (queryString: string) => {
     try {
         return axios.get(`${baseUrl}${queryString}`)
-            .then((resp) => {
+            .then(resp => {
                 if (resp.status === 200) {
                     return resp
                 } else {

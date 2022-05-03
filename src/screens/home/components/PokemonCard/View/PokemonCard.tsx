@@ -12,17 +12,16 @@ import StyledText from '../../../../../components/StyledText/View/StyledText';
 import {GLOBAL_FONTS, GLOBAL_FONTSIZES} from '../../../../../ui/fonts/fonts';
 import GLOBAL_COLORS from '../../../../../ui/colors/colors';
 import LinearGradient from 'react-native-linear-gradient';
-import axios from 'axios';
-
-const elementType = require('../../../../../assets/pictures/leafType.png')
+import {getData} from '../../../../../config/apiRequests';
+import {POKEMON} from '../../../../../config/axiosInstances';
 
 type Props = {
     title: string;
     pokemonIndex: number;
-    pokemonUrl: string;
+    navigation: any;
 }
 
-const PokemonCard = ({title, pokemonIndex, pokemonUrl}: Props) => {
+const PokemonCard = ({title, pokemonIndex, navigation}: Props) => {
     const [pokemonDetails, setPokemonDetails] = useState<any>()
     const [pokemonType, setPokemonType] = useState<any>()
 
@@ -67,20 +66,24 @@ const PokemonCard = ({title, pokemonIndex, pokemonUrl}: Props) => {
         }
     }
 
-    const fetchPokemonDetails = async () => {
-        const response = await axios.get(pokemonUrl);
-        //console.log(`${title}`, response.data.types[0].type.name);
-        setPokemonType(response.data.types[0].type.name)
-        setPokemonDetails(response.data)
-    };
+    const getPokemonDetails = async() => {
+        const response = await getData(`${POKEMON}/${pokemonIndex}`)
+        setPokemonType(response?.data.types[0].type.name)
+        setPokemonDetails(response?.data)
+    }
+
     useEffect(()=>{
-        fetchPokemonDetails()
+        getPokemonDetails()
+        console.log('details', pokemonDetails)
     },[])
 
     const PokemonImage = {uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonIndex}.png`}
 
     return (
-        <TouchableOpacity style={styles.mainContainer}>
+        <TouchableOpacity
+            style={styles.mainContainer}
+            onPress={()=>navigation.navigate('PokemonDetails')}
+        >
             <LinearGradient colors={handlePokemonTypeColor(pokemonType)}
                 style={styles.cardBGContainer}>
                 <View style={styles.backgroundText}>

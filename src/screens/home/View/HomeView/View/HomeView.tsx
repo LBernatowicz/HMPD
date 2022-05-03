@@ -11,34 +11,24 @@ import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
 import SearchContainer from '../../../../../components/SearchContainer/View/SearchContainer';
 import PokemonCard from '../../../components/PokemonCard/View/PokemonCard';
 import GLOBAL_COLORS from '../../../../../ui/colors/colors';
-import axios from 'axios';
-import {getPokemon} from '../../../config/homeApiRequests';
 import {getData} from '../../../../../config/apiRequests';
 import {POKEMON} from '../../../../../config/axiosInstances';
 
+type Props = {
+    navigation: any
+}
 
-const HomeView = () => {
+const HomeView = ({navigation}: Props) => {
     const [pokemon, setPokemon] = useState<Array<object>>([])
 
-    const fetchUser = async () => {
-        const url = `https://pokeapi.co/api/v2/pokemon`;
-        await axios.get(url)
-            .then(resp => {
-                if (resp.status === 200)
-                {
-                    setPokemon(resp.data.results)
-                } else {console.log('bad resp status !== 200')}
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    };
+    const getPokemon = async() => {
+        const data = await getData(POKEMON)
+        setPokemon(data?.data.results)
+    }
 
     useEffect(()=>{
-        console.log('getPokemon!@',getPokemon())
-        fetchUser()
+        getPokemon()
     },[])
-
 
     return (
         <SafeAreaView style={styles.mainContainer}>
@@ -56,7 +46,7 @@ const HomeView = () => {
                     return <PokemonCard
                         title={item.name}
                         pokemonIndex={index + 1}
-                        pokemonUrl={item.url}
+                        navigation={navigation}
                     />
                 })
                 }
