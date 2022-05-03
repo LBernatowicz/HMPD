@@ -11,7 +11,7 @@ import {GLOBAL_FONTS, GLOBAL_FONTSIZES} from '../../../ui/fonts/fonts';
 import GLOBAL_COLORS from '../../../ui/colors/colors';
 
 type Props = {
-    title: string; // text from parent component
+    title: string | number; // text from parent component
     font?: string; // font style from GLOBAL_FONT
     fColor?: string;  // colors form GLOBAL_COLORS
     fSize?: number; // font size from GLOBAL_FONTSIZE
@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
         opacity: 1,
         paddingVertical: 5,
         paddingHorizontal: 10,
-
     }
 });
 

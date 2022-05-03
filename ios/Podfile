@@ -23,6 +23,10 @@ target 'HMPD' do
 
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+
   target 'HMPDTests' do
     inherit! :complete
     # Pods for testing
