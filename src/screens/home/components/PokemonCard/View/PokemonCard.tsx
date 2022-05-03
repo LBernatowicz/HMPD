@@ -35,7 +35,7 @@ const PokemonCard = ({title, pokemonIndex, pokemonUrl}: Props) => {
     }
 
     const handlePokemonTypeElemental = (type: string) => {
-        switch(type) {
+        switch (type) {
             case 'grass':
                 return require('../../../../../assets/pictures/leafType.png')
             case 'fire':
@@ -51,7 +51,7 @@ const PokemonCard = ({title, pokemonIndex, pokemonUrl}: Props) => {
         }
     }
     const handlePokemonTypeColor = (type: string) => {
-        switch(type) {
+        switch (type) {
             case 'grass':
                 return [GLOBAL_COLORS.leafFirst, GLOBAL_COLORS.leafSecond]
             case 'fire':
@@ -69,7 +69,7 @@ const PokemonCard = ({title, pokemonIndex, pokemonUrl}: Props) => {
 
     const fetchPokemonDetails = async () => {
         const response = await axios.get(pokemonUrl);
-        console.log(`${title}`, response.data.types[0].type.name);
+        //console.log(`${title}`, response.data.types[0].type.name);
         setPokemonType(response.data.types[0].type.name)
         setPokemonDetails(response.data)
     };

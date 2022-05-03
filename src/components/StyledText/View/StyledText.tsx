@@ -9,7 +9,6 @@ import React from 'react';
 import {View, Text, StyleSheet, StyleProp, TextStyle} from 'react-native';
 import {GLOBAL_FONTS, GLOBAL_FONTSIZES} from '../../../ui/fonts/fonts';
 import GLOBAL_COLORS from '../../../ui/colors/colors';
-import LinearGradient from 'react-native-linear-gradient';
 
 type Props = {
     title: string | number; // text from parent component

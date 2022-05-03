@@ -12,6 +12,9 @@ import SearchContainer from '../../../../../components/SearchContainer/View/Sear
 import PokemonCard from '../../../components/PokemonCard/View/PokemonCard';
 import GLOBAL_COLORS from '../../../../../ui/colors/colors';
 import axios from 'axios';
+import {getPokemon} from '../../../config/homeApiRequests';
+import {getData} from '../../../../../config/apiRequests';
+import {POKEMON} from '../../../../../config/axiosInstances';
 
 
 const HomeView = () => {
@@ -19,13 +22,21 @@ const HomeView = () => {
 
     const fetchUser = async () => {
         const url = `https://pokeapi.co/api/v2/pokemon`;
-        const response = await axios.get(url);
-        //console.log(response.data.results);
-        setPokemon(response.data.results)
+        await axios.get(url)
+            .then(resp => {
+                if (resp.status === 200)
+                {
+                    setPokemon(resp.data.results)
+                } else {console.log('bad resp status !== 200')}
+            })
+            .catch(err => {
+                console.log(err)
+            })
     };
 
     useEffect(()=>{
-        fetchUser().then(r => console.log('blad?',r))
+        console.log('getPokemon!@',getPokemon())
+        fetchUser()
     },[])
 
 
@@ -40,6 +51,7 @@ const HomeView = () => {
                 style={styles.scrollViewContainer}
                 showsVerticalScrollIndicator={false}
             >
+                {/*todo: change map to FlatList component*/}
                 {pokemon.map((item: any, index: number) => {
                     return <PokemonCard
                         title={item.name}

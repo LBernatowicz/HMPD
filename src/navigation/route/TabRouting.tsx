@@ -11,7 +11,9 @@ import HomeStack from './stack/HomeStack';
 import PokedexStack from './stack/PokedexStack';
 import FightStack from './stack/FightStack';
 import GLOBAL_COLORS from '../../ui/colors/colors';
-import {View, Image} from 'react-native';
+import PokedexTabButton from './components/PokedexTabButton/View/PokedexTabButton';
+import HomeTabButton from './components/HomeTabButton/View/HomeTabButton';
+import FightTabButton from './components/FightTabButton/View/FightTabButton';
 
 
 const TabRouting = () => {
@@ -43,43 +45,21 @@ const TabRouting = () => {
                 name={'Pokedex'}
                 component={PokedexStack}
                 options={{
-                    tabBarIcon: ({focused}) => (
-                        <View style={{position: 'absolute', top: '30%', justifyContent: 'center', alignItems: 'center'}}>
-                            {focused ? <View style={{height: 60, width: 60, borderRadius: 30, bottom: 5, backgroundColor:GLOBAL_COLORS.third, justifyContent: 'center', alignItems: 'center'}}>
-                            <Image source={require('../../assets/pictures/pokedex-icon-13.png')} style={{width: 50, height: 50}}/>
-                            </View>
-                            :
-                                <Image source={require('../../assets/pictures/pokedex-icon-13.png')} style={{width: 50, height: 50}}/>
-                            }
-                        </View>
-                        )
+                    tabBarIcon: ({ focused}) => <PokedexTabButton focused={focused}/>
                 }}
             />
             <Tab.Screen
                 name={'Home'}
                 component={HomeStack}
                 options={{
-                    tabBarIcon: ({ focused}) => (
-                        <View style={{ width: 70, height: 70, backgroundColor: focused ? GLOBAL_COLORS.third : GLOBAL_COLORS.fourth, borderRadius: 35, bottom: '40%', justifyContent: 'center',alignItems: 'center'}}>
-                            <Image source={require('../../assets/pictures/pokeball.png')} style={{width: 70, height: 70}}/>
-                        </View>
-                    )
+                    tabBarIcon: ({ focused}) => <HomeTabButton focused={focused}/>
                 }}
             />
             <Tab.Screen
                 name={'Fight'}
                 component={FightStack}
                 options={{
-                    tabBarIcon: ({focused}) => (
-                        <View style={{position: 'absolute', top: '25%', justifyContent: 'center', alignItems: 'center'}}>
-                            {focused ? <View style={{height: 60, width: 60, borderRadius: 30,bottom: 5, backgroundColor:GLOBAL_COLORS.third, justifyContent: 'center', alignItems: 'center'}}>
-                                    <Image source={require('../../assets/pictures/fist.png')} style={{width: 35, height: 35}}/>
-                                </View>
-                                :
-                                <Image source={require('../../assets/pictures/fist.png')} style={{width: 35, height: 35, top: 8,}}/>
-                            }
-                        </View>
-                    )
+                    tabBarIcon: ({focused}) => <FightTabButton focused={focused}/>
                 }}
             />
         </Tab.Navigator>
