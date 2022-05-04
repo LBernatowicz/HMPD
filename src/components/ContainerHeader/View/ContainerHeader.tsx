@@ -52,7 +52,7 @@ const ContainerHeader = ({exitButton, title, handleExit, navigation, externalSty
 const styles = StyleSheet.create({
     mainContainer: {
         flexDirection: 'row',
-        backgroundColor: GLOBAL_COLORS.white,
+        backgroundColor: 'transparent',
         height: 60,
         alignItems: 'center',
     },
