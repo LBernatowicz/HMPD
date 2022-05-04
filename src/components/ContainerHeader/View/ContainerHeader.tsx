@@ -10,17 +10,30 @@ import {SafeAreaView, StyleProp, StyleSheet, TouchableOpacity, View, ViewProps} 
 import StyledText from '../../StyledText/View/StyledText';
 import CircleArrow from '../../../assets/svg/CircleArrow';
 import Exit from '../../../assets/svg/Exit';
-import GLOBAL_COLORS from '../../../ui/colors/colors';
 
 type Props = {
     exitButton?: boolean
-    title: string
+    title?: string
     handleExit?: ()=>void;
     navigation?: any;
     externalStyle?: StyleProp<ViewProps>
+    font?: string;
+    fSize?: number;
+    fColor?: string;
+    fOpacity?: number;
 }
 
-const ContainerHeader = ({exitButton, title, handleExit, navigation, externalStyle}: Props) => {
+const ContainerHeader = ({
+                             exitButton,
+                             title,
+                             handleExit,
+                             navigation,
+                             externalStyle,
+                             font,
+                             fSize,
+                             fColor,
+                             fOpacity,
+}: Props) => {
     // function section
     const handleBack = () => navigation.goBack();
 
@@ -33,7 +46,13 @@ const ContainerHeader = ({exitButton, title, handleExit, navigation, externalSty
                 <CircleArrow style={styles.backSvg}/>
             </TouchableOpacity>
             <View style={styles.titleContainer}>
-                <StyledText title={title}/>
+                <StyledText
+                    title={title ? title : ''}
+                    font={font}
+                    fSize={fSize}
+                    fColor={fColor}
+                    fOpacity={fOpacity}
+                />
             </View>
             {exitButton ?
                 <TouchableOpacity
@@ -53,7 +72,7 @@ const styles = StyleSheet.create({
     mainContainer: {
         flexDirection: 'row',
         backgroundColor: 'transparent',
-        height: 60,
+        height: 80,
         alignItems: 'center',
     },
     backContainer: {

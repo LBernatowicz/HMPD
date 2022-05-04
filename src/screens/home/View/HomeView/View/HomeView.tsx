@@ -11,8 +11,6 @@ import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
 import SearchContainer from '../../../../../components/SearchContainer/View/SearchContainer';
 import PokemonCard from '../../../components/PokemonCard/View/PokemonCard';
 import GLOBAL_COLORS from '../../../../../ui/colors/colors';
-import {getData} from '../../../../../config/apiRequests';
-import {POKEMON} from '../../../../../config/axiosInstances';
 import {getPokemon} from '../../../config/homeApiRequests';
 
 type Props = {
