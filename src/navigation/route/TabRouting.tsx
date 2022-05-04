@@ -7,20 +7,20 @@
 
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeStack from './stack/HomeStack';
 import PokedexStack from './stack/PokedexStack';
 import FightStack from './stack/FightStack';
 import GLOBAL_COLORS from '../../ui/colors/colors';
 import PokedexTabButton from './components/PokedexTabButton/View/PokedexTabButton';
 import HomeTabButton from './components/HomeTabButton/View/HomeTabButton';
 import FightTabButton from './components/FightTabButton/View/FightTabButton';
+import HomeView from '../../screens/home/View/HomeView/View/HomeView';
 
 
 const TabRouting = () => {
     const Tab = createBottomTabNavigator();
     return (
         <Tab.Navigator
-            initialRouteName="Home"
+            initialRouteName="HomeView"
             screenOptions={{
                 headerShown: false,
                 tabBarShowLabel: false,
@@ -49,8 +49,8 @@ const TabRouting = () => {
                 }}
             />
             <Tab.Screen
-                name={'Home'}
-                component={HomeStack}
+                name={'HomeView'}
+                component={HomeView}
                 options={{
                     tabBarIcon: ({ focused}) => <HomeTabButton focused={focused}/>
                 }}

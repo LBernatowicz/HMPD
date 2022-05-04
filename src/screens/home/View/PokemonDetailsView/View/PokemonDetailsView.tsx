@@ -1,10 +1,18 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import ContainerHeader from '../../../../../components/ContainerHeader/View/ContainerHeader';
+import GLOBAL_COLORS from '../../../../../ui/colors/colors';
 
-const PokemonDetailsView = () => {
+type Props = {
+    navigation: any
+}
+
+const PokemonDetailsView = ({navigation}: Props) => {
     return (
         <SafeAreaView style={styles.mainContainer}>
-            <Text>sadsad</Text>
+            <ContainerHeader title={''} navigation={navigation}/>
+            <View style={{flex:1}}/>
+            <View style={{flex:2, backgroundColor: GLOBAL_COLORS.fireFirst, borderTopLeftRadius: 20, borderTopRightRadius:20, top:50}}/>
         </SafeAreaView>
     )
 }
@@ -12,7 +20,10 @@ const PokemonDetailsView = () => {
 const styles = StyleSheet.create({
     mainContainer: {
         flex:1,
-        backgroundColor: 'red'
+        backgroundColor: GLOBAL_COLORS.white
+    },
+    externalStyle: {
+        backgroundColor: 'transparent'
     }
 })
 

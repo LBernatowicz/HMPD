@@ -3,5 +3,5 @@ import {getData} from '../../../config/apiRequests';
 
 export const getPokemon = async() => {
     const data = await getData(POKEMON)
-    console.log('@@@@@@@@@',data)
+    return data;
 }

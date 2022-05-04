@@ -13,6 +13,7 @@ import PokemonCard from '../../../components/PokemonCard/View/PokemonCard';
 import GLOBAL_COLORS from '../../../../../ui/colors/colors';
 import {getData} from '../../../../../config/apiRequests';
 import {POKEMON} from '../../../../../config/axiosInstances';
+import {getPokemon} from '../../../config/homeApiRequests';
 
 type Props = {
     navigation: any
@@ -21,13 +22,13 @@ type Props = {
 const HomeView = ({navigation}: Props) => {
     const [pokemon, setPokemon] = useState<Array<object>>([])
 
-    const getPokemon = async() => {
-        const data = await getData(POKEMON)
+    const fetchPokemon = async() => {
+        const data = await getPokemon()
         setPokemon(data?.data.results)
     }
 
     useEffect(()=>{
-        getPokemon()
+        fetchPokemon()
     },[])
 
     return (
