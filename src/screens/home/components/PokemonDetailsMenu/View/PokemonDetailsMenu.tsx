@@ -4,6 +4,7 @@ import GLOBAL_COLORS from '../../../../../ui/colors/colors';
 import FontButton from '../../../../../components/FontButton/View/FontButton';
 import StyledText from '../../../../../components/StyledText/View/StyledText';
 import PokeballButton from '../../../../../components/PokebalButton/View/PokeballButton';
+import {GLOBAL_FONTS} from '../../../../../ui/fonts/fonts';
 
 const PokemonDetailsMenu = () => {
     const [menuVersion, setMenuVersion] = useState<number>(1)
@@ -27,18 +28,21 @@ const PokemonDetailsMenu = () => {
             <View style={styles.buttonMenuContainer}>
                 <PokeballButton
                     title={'About'}
+                    font={GLOBAL_FONTS.ROBOTO_BOLD}
                     fColor={menuVersion === 1 ? GLOBAL_COLORS.white : GLOBAL_COLORS.primary}
                     menuVersion={menuVersion === 1 && true}
                     onPress={()=>setMenuVersion(1)}
                 />
                 <PokeballButton
                     title={'Status'}
+                    font={GLOBAL_FONTS.ROBOTO_BOLD}
                     fColor={menuVersion === 2 ? GLOBAL_COLORS.white : GLOBAL_COLORS.primary}
                     menuVersion={menuVersion === 2 && true}
                     onPress={()=>setMenuVersion(2)}
                 />
                 <PokeballButton
                     title={'Moves'}
+                    font={GLOBAL_FONTS.ROBOTO_BOLD}
                     fColor={menuVersion === 3 ? GLOBAL_COLORS.white : GLOBAL_COLORS.primary}
                     menuVersion={menuVersion === 3 && true}
                     onPress={()=>setMenuVersion(3)}

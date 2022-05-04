@@ -7,7 +7,7 @@
 
 // Import library section
 import React from 'react';
-import {TouchableOpacity, StyleSheet, SafeAreaView, ViewStyle, StyleProp} from 'react-native';
+import {TouchableOpacity, StyleSheet, SafeAreaView, ViewStyle, StyleProp, Image, View} from 'react-native';
 import StyledText from '../../StyledText/View/StyledText';
 import GLOBAL_COLORS from '../../../ui/colors/colors';
 
@@ -28,7 +28,6 @@ const PokeballButton = ({title, font, fColor, fOpacity, fSize, externalStyles, o
         <SafeAreaView style={styles.mainContainer}>
             <TouchableOpacity
                 onPress={onPress}
-                style={menuVersion ? styles.buttonEnabled : styles.buttonDisabled}
             >
                 <StyledText
                     title={title}
@@ -38,6 +37,7 @@ const PokeballButton = ({title, font, fColor, fOpacity, fSize, externalStyles, o
                     fOpacity={fOpacity}
                     externalStyle={externalStyles}
                 />
+                <View style={menuVersion ? styles.buttonEnabled : styles.buttonDisabled}/>
             </TouchableOpacity>
         </SafeAreaView>
     )
@@ -45,23 +45,19 @@ const PokeballButton = ({title, font, fColor, fOpacity, fSize, externalStyles, o
 
 const styles = StyleSheet.create({
     mainContainer: {
-        justifyContent: 'center',
         alignItems: 'center',
     },
     buttonEnabled: {
-        height:80,
-        width:80,
-        borderRadius:40,
-        backgroundColor:GLOBAL_COLORS.fourth,
-        justifyContent: 'center',
-        alignItems: 'center',
+        height: 2,
+        backgroundColor:GLOBAL_COLORS.white,
+        marginBottom: 2,
     },
     buttonDisabled: {
         justifyContent: 'center',
         alignItems: 'center',
-        height:80,
-        width:80,
-    }
+        marginBottom: 2,
+
+    },
 })
 
 export default PokeballButton;
