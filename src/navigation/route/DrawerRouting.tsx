@@ -7,15 +7,17 @@
 
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import TabRouting from './TabRouting';
+
+import HomeView from '../../screens/home/View/HomeView/View/HomeView';
+import HomeStack from './stack/HomeStack';
 const DrawerRouting = () => {
     const Drawer = createDrawerNavigator()
     return (
         <Drawer.Navigator
-            initialRouteName={'Tab'}
+            initialRouteName={'Home'}
             screenOptions={{headerShown: false}}
         >
-            <Drawer.Screen name={'Tab'} component={TabRouting}/>
+            <Drawer.Screen name={'Home'} component={HomeStack}/>
         </Drawer.Navigator>
     )
 }
