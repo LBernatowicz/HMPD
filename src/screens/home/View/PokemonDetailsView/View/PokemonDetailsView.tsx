@@ -1,3 +1,11 @@
+
+/**
+ * Lukasz Bernatowicz
+ * LBernatowicz
+ * PokedexView
+ * 22.04.2022
+ */
+
 import React from 'react';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
 import ContainerHeader from '../../../../../components/ContainerHeader/View/ContainerHeader';
