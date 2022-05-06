@@ -50,12 +50,10 @@ const styles = StyleSheet.create({
     buttonEnabled: {
         height: 2,
         backgroundColor:GLOBAL_COLORS.white,
-        marginBottom: 2,
     },
     buttonDisabled: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 2,
 
     },
 })
