@@ -7,7 +7,7 @@ import PokemonAboutMenu from '../../PokemonAboutMenu/View/PokemonAboutMenu';
 import PokemonStatusMenu from '../../PokemonStatusMenu/View/PokemonStatusMenu';
 import PokemonMovesMenu from '../../PokemonMovesMenu/View/PokemonMovesMenu';
 import hairlineWidth = StyleSheet.hairlineWidth;
-import {handlePokemonFirstColor, handlePokemonSecondColor} from '../../../helpers/helpersFunction';
+import {handlePokemonFirstColor, handlePokemonSecondColor} from '../../../../../helpers/helpersFunction';
 
 type Props = {
     pokemonType?: string;

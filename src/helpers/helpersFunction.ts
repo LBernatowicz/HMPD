@@ -1,4 +1,4 @@
-import GLOBAL_COLORS from '../../../ui/colors/colors';
+import GLOBAL_COLORS from '../ui/colors/colors';
 
 export const handlePokemonIndex = (idx: number) => {
     if (idx < 10) {return `#00${idx.toString()}`}
@@ -61,18 +61,22 @@ export const handlePokemonFirstColor = (type: string) => {
 export const handlePokemonTypeElemental = (type: string) => {
     switch (type) {
         case 'grass':
-            return require('../../../assets/pictures/leafType.png')
+            return require('../assets/pictures/leafType.png')
         case 'fire':
-            return require('../../../assets/pictures/fireType.png')
+            return require('../assets/pictures/fireType.png')
         case 'water':
-            return require('../../../assets/pictures/waterType.png')
+            return require('../assets/pictures/waterType.png')
         case 'bug':
-            return require('../../../assets/pictures/posionType.png')
+            return require('../assets/pictures/posionType.png')
         case 'normal':
-            return require('../../../assets/pictures/rockType.png')
+            return require('../assets/pictures/rockType.png')
         default:
-            return require('../../../assets/pictures/leafType.png')
+            return require('../assets/pictures/leafType.png')
     }
 }
+
+export const handleStatesArray = (detailsArray: any) => {
+    console.log(detailsArray.flat())
+    };
 
 

@@ -5,11 +5,11 @@
  * 22.04.2022
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, StyleSheet} from 'react-native';
 import LineGraph from '../../../../../components/LineGraph/View/LineGraph';
 import {GLOBAL_FONTSIZES} from '../../../../../ui/fonts/fonts';
-import {handlePokemonSecondColor} from '../../../helpers/helpersFunction';
+import {handlePokemonSecondColor, handleStatesArray} from '../../../../../helpers/helpersFunction';
 
 type Props = {
     pokemonType: string
@@ -17,6 +17,7 @@ type Props = {
 }
 
 const PokemonStatusMenu = ({pokemonType, pokemonDetails}: Props) => {
+    // console.log('@@@@@!@@@@', pokemonDetails.stats)
     return (
         <View style={styles.mainContainer}>
             <LineGraph

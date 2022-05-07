@@ -14,7 +14,7 @@ import GLOBAL_COLORS from '../../../../../ui/colors/colors';
 import LinearGradient from 'react-native-linear-gradient';
 import {getData} from '../../../../../config/apiRequests';
 import {POKEMON} from '../../../../../config/axiosInstances';
-import {handlePokemonIndex, handlePokemonTypeColor, handlePokemonTypeElemental} from '../../../helpers/helpersFunction';
+import {handlePokemonIndex, handlePokemonTypeColor, handlePokemonTypeElemental} from '../../../../../helpers/helpersFunction';
 
 type Props = {
     title: string;
@@ -30,11 +30,11 @@ const PokemonCard = ({title, pokemonIndex, navigation}: Props) => {
         const response = await getData(`${POKEMON}/${pokemonIndex}`)
         setPokemonType(response?.data.types[0].type.name)
         setPokemonDetails(response?.data)
+        //console.log('@@@@@@@@@',response?.data.stats[0].base_stat)
     }
 
     useEffect(()=>{
         getPokemonDetails()
-
     },[])
 
     const PokemonImage = {uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonIndex}.png`}

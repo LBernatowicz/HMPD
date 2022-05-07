@@ -6,7 +6,7 @@ import {GLOBAL_FONTS, GLOBAL_FONTSIZES} from '../../../../../../../ui/fonts/font
 import hairlineWidth = StyleSheet.hairlineWidth;
 import PokemonDetailsImage from '../../../../PokemonDetailsImage/View/PokemonDetailsImage';
 import CircleArrow from '../../../../../../../assets/svg/CircleArrow';
-import {handlePokemonFirstColor, handlePokemonSecondColor} from '../../../../../helpers/helpersFunction';
+import {handlePokemonFirstColor, handlePokemonSecondColor} from '../../../../../../../helpers/helpersFunction';
 
 type Props = {
     pokemonType: string;

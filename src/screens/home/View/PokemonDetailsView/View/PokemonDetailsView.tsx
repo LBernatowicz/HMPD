@@ -7,14 +7,14 @@
  */
 
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import ContainerHeader from '../../../../../components/ContainerHeader/View/ContainerHeader';
 import GLOBAL_COLORS from '../../../../../ui/colors/colors';
 import PokemonDetailsImage from '../../../components/PokemonDetailsImage/View/PokemonDetailsImage';
 import PokemonDetailsMenu from '../../../components/PokemonDetailsMenu/View/PokemonDetailsMenu';
 import {GLOBAL_FONTS, GLOBAL_FONTSIZES} from '../../../../../ui/fonts/fonts';
 import LinearGradient from 'react-native-linear-gradient';
-import {handlePokemonIndex, handlePokemonTypeColor} from '../../../helpers/helpersFunction';
+import {handlePokemonIndex, handlePokemonTypeColor, handleStatesArray} from '../../../../../helpers/helpersFunction';
 
 const imageLink = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork'
 
@@ -26,12 +26,15 @@ type Props = {
 const PokemonDetailsView = ({navigation, route}: Props) => {
     const [uniquePokemon, setUniquePokemon] = useState<any>()
     const [pokemonIndex, setPokemonIndex] = useState<any>()
-    console.log('navigation', `${imageLink}/${route.params.index}` )
 
-    useEffect(()=> {
+    useEffect( ()=> {
         setUniquePokemon(route.params.details)
         setPokemonIndex(route.params.index)
     },[])
+
+    useEffect(() => {
+       // handleStatesArray(route.params.details)
+    }, [])
 
 
     return (
@@ -52,7 +55,10 @@ const PokemonDetailsView = ({navigation, route}: Props) => {
                     />
                 </View>
             <View style={styles.pokemonMenuContainer}>
-                <PokemonDetailsMenu pokemonType={route.params.details.types[0].type.name}/>
+                <PokemonDetailsMenu
+                    pokemonType={route.params.details.types[0].type.name}
+                    pokemonDetails={route.params.details}
+                />
             </View>
         </LinearGradient>
     )

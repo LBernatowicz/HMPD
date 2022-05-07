@@ -4,7 +4,7 @@ import GLOBAL_COLORS from '../../../../../../../ui/colors/colors';
 import StyledText from '../../../../../../../components/StyledText/View/StyledText';
 import {GLOBAL_FONTS, GLOBAL_FONTSIZES} from '../../../../../../../ui/fonts/fonts';
 import hairlineWidth = StyleSheet.hairlineWidth;
-import {handlePokemonFirstColor, handlePokemonSecondColor} from '../../../../../helpers/helpersFunction';
+import {handlePokemonFirstColor, handlePokemonSecondColor} from '../../../../../../../helpers/helpersFunction';
 
 type Props = {
     pokemonType: string;
