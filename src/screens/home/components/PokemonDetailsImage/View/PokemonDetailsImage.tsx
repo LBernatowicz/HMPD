@@ -9,9 +9,10 @@ type Props = {
     imageHeight?: number;
     showIndex?: string;
     absolute?: boolean;
+    image?: string;
 }
 
-const PokemonDetailsImage = ({imageWidth, imageHeight, showIndex, absolute}: Props) => {
+const PokemonDetailsImage = ({imageWidth, imageHeight, showIndex, absolute, image}: Props) => {
     return (
         <View style={styles.mainContainer}>
             <View style={styles.indexText}>
@@ -29,7 +30,7 @@ const PokemonDetailsImage = ({imageWidth, imageHeight, showIndex, absolute}: Pro
                 position: absolute ? 'absolute' : 'relative',
                 top: absolute ? '5%' : 0,
             }]}>
-                <Image source={require('../../../../../assets/pictures/butterfly.png')}
+                <Image source={image ? {uri: image} : require('../../../../../assets/pictures/butterfly.png')}
                        style={{
                            width: imageWidth ? imageWidth : 300,
                            height: imageHeight? imageHeight : 300,

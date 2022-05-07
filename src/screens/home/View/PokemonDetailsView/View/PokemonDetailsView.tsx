@@ -6,7 +6,7 @@
  * 22.04.2022
  */
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
 import ContainerHeader from '../../../../../components/ContainerHeader/View/ContainerHeader';
 import GLOBAL_COLORS from '../../../../../ui/colors/colors';
@@ -14,16 +14,30 @@ import PokemonDetailsImage from '../../../components/PokemonDetailsImage/View/Po
 import PokemonDetailsMenu from '../../../components/PokemonDetailsMenu/View/PokemonDetailsMenu';
 import {GLOBAL_FONTS, GLOBAL_FONTSIZES} from '../../../../../ui/fonts/fonts';
 import LinearGradient from 'react-native-linear-gradient';
+import {handlePokemonIndex, handlePokemonTypeColor} from '../../../helpers/helpersFunction';
+
+const imageLink = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork'
 
 type Props = {
-    navigation: any
+    navigation: any,
+    route: any;
 }
 
-const PokemonDetailsView = ({navigation}: Props) => {
+const PokemonDetailsView = ({navigation, route}: Props) => {
+    const [uniquePokemon, setUniquePokemon] = useState<any>()
+    const [pokemonIndex, setPokemonIndex] = useState<any>()
+    console.log('navigation', `${imageLink}/${route.params.index}` )
+
+    useEffect(()=> {
+        setUniquePokemon(route.params.details)
+        setPokemonIndex(route.params.index)
+    },[])
+
+
     return (
-        <LinearGradient colors={[GLOBAL_COLORS.leafFirst, GLOBAL_COLORS.leafSecond]} style={styles.mainContainer}>
+        <LinearGradient colors={handlePokemonTypeColor(route.params.details.types[0].type.name)} style={styles.mainContainer}>
                 <ContainerHeader
-                    title={'BULBAZAUR'}
+                    title={route.params.details.forms[0].name.toUpperCase()}
                     font={GLOBAL_FONTS.ROBOTO_BOLD}
                     fSize={GLOBAL_FONTSIZES.header}
                     fColor={GLOBAL_COLORS.primary}
@@ -31,10 +45,14 @@ const PokemonDetailsView = ({navigation}: Props) => {
                     navigation={navigation}
                 />
                 <View style={styles.pokemonImageContainer}>
-                    <PokemonDetailsImage showIndex={'#001'} absolute/>
+                    <PokemonDetailsImage
+                        showIndex={handlePokemonIndex(route.params.index)}
+                        image={`${imageLink}/${route.params.index}.png`}
+                        absolute
+                    />
                 </View>
             <View style={styles.pokemonMenuContainer}>
-                <PokemonDetailsMenu/>
+                <PokemonDetailsMenu pokemonType={route.params.details.types[0].type.name}/>
             </View>
         </LinearGradient>
     )

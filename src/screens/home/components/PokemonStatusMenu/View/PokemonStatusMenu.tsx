@@ -9,9 +9,14 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import LineGraph from '../../../../../components/LineGraph/View/LineGraph';
 import {GLOBAL_FONTSIZES} from '../../../../../ui/fonts/fonts';
-import GLOBAL_COLORS from '../../../../../ui/colors/colors';
+import {handlePokemonSecondColor} from '../../../helpers/helpersFunction';
 
-const PokemonStatusMenu = () => {
+type Props = {
+    pokemonType: string
+    pokemonDetails: any
+}
+
+const PokemonStatusMenu = ({pokemonType, pokemonDetails}: Props) => {
     return (
         <View style={styles.mainContainer}>
             <LineGraph
@@ -21,7 +26,7 @@ const PokemonStatusMenu = () => {
                 fOpacity={0.5}
                 shortTitle={40}
                 shortFOpacity={0.5}
-                barColor={GLOBAL_COLORS.leafSecond}
+                barColor={handlePokemonSecondColor(pokemonType)}
             />
             <LineGraph
                 progress={0.3}
@@ -30,7 +35,7 @@ const PokemonStatusMenu = () => {
                 fOpacity={0.5}
                 shortTitle={40}
                 shortFOpacity={0.5}
-                barColor={GLOBAL_COLORS.leafSecond}
+                barColor={handlePokemonSecondColor(pokemonType)}
             />
             <LineGraph
                 progress={0.3}
@@ -39,7 +44,7 @@ const PokemonStatusMenu = () => {
                 fOpacity={0.5}
                 shortTitle={40}
                 shortFOpacity={0.5}
-                barColor={GLOBAL_COLORS.leafSecond}
+                barColor={handlePokemonSecondColor(pokemonType)}
             />
             <LineGraph
                 progress={0.3}
@@ -48,7 +53,7 @@ const PokemonStatusMenu = () => {
                 fOpacity={0.5}
                 shortTitle={40}
                 shortFOpacity={0.5}
-                barColor={GLOBAL_COLORS.leafSecond}
+                barColor={handlePokemonSecondColor(pokemonType)}
             />
             <LineGraph
                 progress={0.3}
@@ -57,7 +62,7 @@ const PokemonStatusMenu = () => {
                 fOpacity={0.5}
                 shortTitle={40}
                 shortFOpacity={0.5}
-                barColor={GLOBAL_COLORS.leafSecond}
+                barColor={handlePokemonSecondColor(pokemonType)}
             />
             <LineGraph
                 progress={0.3}
@@ -66,7 +71,7 @@ const PokemonStatusMenu = () => {
                 fOpacity={0.5}
                 shortTitle={40}
                 shortFOpacity={0.5}
-                barColor={GLOBAL_COLORS.leafSecond}
+                barColor={handlePokemonSecondColor(pokemonType)}
             />
             <LineGraph
                 progress={0.3}
@@ -75,7 +80,7 @@ const PokemonStatusMenu = () => {
                 fOpacity={0.5}
                 shortTitle={40}
                 shortFOpacity={0.5}
-                barColor={GLOBAL_COLORS.leafSecond}
+                barColor={handlePokemonSecondColor(pokemonType)}
             />
         </View>
     )

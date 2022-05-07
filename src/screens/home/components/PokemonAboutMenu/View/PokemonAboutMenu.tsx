@@ -11,11 +11,15 @@ import StyledText from '../../../../../components/StyledText/View/StyledText';
 import PokemonInformationText from '../components/PokemonInformationText/View/PokemonInformationText';
 import PokemonInformationEvo from '../components/PokemonInformationEvo/View/PokemonInformationEvo';
 
-const PokemonAboutMenu = () => {
+type Props = {
+    pokemonType: string
+}
+
+const PokemonAboutMenu = ({pokemonType}: Props) => {
     return (
         <View style={styles.mainContainer}>
-            <PokemonInformationText/>
-            <PokemonInformationEvo/>
+            <PokemonInformationText pokemonType={pokemonType}/>
+            <PokemonInformationEvo pokemonType={pokemonType}/>
         </View>
     )
 }

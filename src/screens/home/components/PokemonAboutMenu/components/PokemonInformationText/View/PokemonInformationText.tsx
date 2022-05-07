@@ -4,39 +4,30 @@ import GLOBAL_COLORS from '../../../../../../../ui/colors/colors';
 import StyledText from '../../../../../../../components/StyledText/View/StyledText';
 import {GLOBAL_FONTS, GLOBAL_FONTSIZES} from '../../../../../../../ui/fonts/fonts';
 import hairlineWidth = StyleSheet.hairlineWidth;
+import {handlePokemonFirstColor, handlePokemonSecondColor} from '../../../../../helpers/helpersFunction';
 
-const PokemonInformationText = () => {
+type Props = {
+    pokemonType: string;
+}
+
+const PokemonInformationText = ({pokemonType}: Props) => {
     return (
         <View style={styles.mainContainer}>
-            <View style={[styles.aboutContainer, {borderColor: GLOBAL_COLORS.leafSecond}]}>
+            <View style={[styles.aboutContainer, {borderColor: handlePokemonSecondColor(pokemonType)}]}>
                 <View style={styles.aboutText}>
                     <StyledText
-                        title={'dasdasd'}
+                        title={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti eum id iste iure laboriosam perspiciatis quo quos repellat sint unde! Dignissimos illo in maiores molestias necessitatibus nobis perspiciatis quo velit!'}
                         font={GLOBAL_FONTS.ROBOTO}
-                        fColor={GLOBAL_COLORS.leafSecond}
-                        fOpacity={1}
-                        fSize={GLOBAL_FONTSIZES.info}
-                    />
-                    <StyledText
-                        title={'dasdasd'}
-                        font={GLOBAL_FONTS.ROBOTO}
-                        fColor={GLOBAL_COLORS.leafSecond}
-                        fOpacity={1}
-                        fSize={GLOBAL_FONTSIZES.info}
-                    />
-                    <StyledText
-                        title={'dasdasd'}
-                        font={GLOBAL_FONTS.ROBOTO}
-                        fColor={GLOBAL_COLORS.leafSecond}
+                        fColor={handlePokemonSecondColor(pokemonType)}
                         fOpacity={1}
                         fSize={GLOBAL_FONTSIZES.info}
                     />
                 </View>
-                <View style={[styles.sectionTitleContainer, {backgroundColor: GLOBAL_COLORS.leafFirst}]}>
+                <View style={[styles.sectionTitleContainer, {backgroundColor: handlePokemonFirstColor(pokemonType)}]}>
                     <StyledText
                         title={'Information'}
                         font={GLOBAL_FONTS.ROBOTO}
-                        fColor={GLOBAL_COLORS.leafSecond}
+                        fColor={handlePokemonSecondColor(pokemonType)}
                         fOpacity={1}
                         fSize={GLOBAL_FONTSIZES.info}
                     />

@@ -6,11 +6,16 @@ import {GLOBAL_FONTS, GLOBAL_FONTSIZES} from '../../../../../../../ui/fonts/font
 import hairlineWidth = StyleSheet.hairlineWidth;
 import PokemonDetailsImage from '../../../../PokemonDetailsImage/View/PokemonDetailsImage';
 import CircleArrow from '../../../../../../../assets/svg/CircleArrow';
+import {handlePokemonFirstColor, handlePokemonSecondColor} from '../../../../../helpers/helpersFunction';
 
-const PokemonInformationEvo = () => {
+type Props = {
+    pokemonType: string;
+}
+
+const PokemonInformationEvo = ({pokemonType}: Props) => {
     return (
         <View style={styles.mainContainer}>
-            <View style={[styles.aboutContainer, {borderColor: GLOBAL_COLORS.leafSecond}]}>
+            <View style={[styles.aboutContainer, {borderColor: handlePokemonSecondColor(pokemonType)}]}>
                 <View style={styles.aboutEvo}>
                         <PokemonDetailsImage imageHeight={100} imageWidth={100}/>
                         <CircleArrow/>
@@ -18,11 +23,11 @@ const PokemonInformationEvo = () => {
                         <CircleArrow/>
                         <PokemonDetailsImage imageHeight={100} imageWidth={100}/>
                 </View>
-                <View style={[styles.sectionTitleContainer, {backgroundColor: GLOBAL_COLORS.leafFirst}]}>
+                <View style={[styles.sectionTitleContainer, {backgroundColor: handlePokemonFirstColor(pokemonType)}]}>
                     <StyledText
                         title={'Evolution'}
                         font={GLOBAL_FONTS.ROBOTO}
-                        fColor={GLOBAL_COLORS.leafSecond}
+                        fColor={handlePokemonSecondColor(pokemonType)}
                         fOpacity={1}
                         fSize={GLOBAL_FONTSIZES.info}
                     />

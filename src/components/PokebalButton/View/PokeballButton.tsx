@@ -22,13 +22,14 @@ type Props = {
     externalStyles?: StyleProp<ViewStyle>
     onPress?: ()=>void;
     menuVersion?: boolean;
+    enabledBackgroundColor?: string;
 }
-const PokeballButton = ({title, font, fColor, fOpacity, fSize, externalStyles, onPress, menuVersion}: Props) => {
+const PokeballButton = ({title, font, fColor, fOpacity, fSize, externalStyles, onPress, menuVersion,enabledBackgroundColor}: Props) => {
     return (
         <SafeAreaView style={styles.mainContainer}>
             <TouchableOpacity
                 onPress={onPress}
-                style={menuVersion ? styles.buttonEnabled : styles.buttonDisabled}
+                style={menuVersion ? [styles.buttonEnabled,{backgroundColor: enabledBackgroundColor}] : styles.buttonDisabled}
             >
                 <StyledText
                     title={title}
