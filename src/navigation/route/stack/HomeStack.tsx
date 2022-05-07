@@ -7,16 +7,18 @@
 
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import HomeView from '../../../screens/home/View/HomeView/View/HomeView';
+import PokemonDetailsView from '../../../screens/home/View/PokemonDetailsView/View/PokemonDetailsView';
+import TabRouting from '../TabRouting';
 
 const HomeStack = () => {
     const Stack = createStackNavigator()
     return (
         <Stack.Navigator
-            initialRouteName="HomeView"
+            initialRouteName="Tab"
             screenOptions={{headerShown: false}}
         >
-            <Stack.Screen name={'HomeView'} component={HomeView}/>
+            <Stack.Screen name={'Tab'} component={TabRouting}/>
+            <Stack.Screen name={'PokemonDetails'} component={PokemonDetailsView} />
         </Stack.Navigator>
     )
 }

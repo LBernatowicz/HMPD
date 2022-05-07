@@ -11,23 +11,23 @@ import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
 import SearchContainer from '../../../../../components/SearchContainer/View/SearchContainer';
 import PokemonCard from '../../../components/PokemonCard/View/PokemonCard';
 import GLOBAL_COLORS from '../../../../../ui/colors/colors';
-import axios from 'axios';
+import {getPokemon} from '../../../config/homeApiRequests';
 
+type Props = {
+    navigation: any
+}
 
-const HomeView = () => {
+const HomeView = ({navigation}: Props) => {
     const [pokemon, setPokemon] = useState<Array<object>>([])
 
-    const fetchUser = async () => {
-        const url = `https://pokeapi.co/api/v2/pokemon`;
-        const response = await axios.get(url);
-        //console.log(response.data.results);
-        setPokemon(response.data.results)
-    };
+    const fetchPokemon = async() => {
+        const data = await getPokemon()
+        setPokemon(data?.data.results)
+    }
 
     useEffect(()=>{
-        fetchUser().then(r => console.log('blad?',r))
+        fetchPokemon()
     },[])
-
 
     return (
         <SafeAreaView style={styles.mainContainer}>
@@ -40,11 +40,12 @@ const HomeView = () => {
                 style={styles.scrollViewContainer}
                 showsVerticalScrollIndicator={false}
             >
+                {/*todo: change map to FlatList component*/}
                 {pokemon.map((item: any, index: number) => {
                     return <PokemonCard
                         title={item.name}
                         pokemonIndex={index + 1}
-                        pokemonUrl={item.url}
+                        navigation={navigation}
                     />
                 })
                 }
