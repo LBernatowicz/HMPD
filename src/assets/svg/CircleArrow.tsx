@@ -14,7 +14,7 @@ const CircleArrow = (props: any) => (
         viewBox="0 0 16 16"
         height={16}
         width={16}
-        fill='white'
+        fill='transparent'
         stroke={GLOBAL_COLORS.primary}
         strokeWidth={2}
         {...props}>

@@ -5,6 +5,7 @@ import StyledText from '../../../../../../../components/StyledText/View/StyledTe
 import {GLOBAL_FONTS, GLOBAL_FONTSIZES} from '../../../../../../../ui/fonts/fonts';
 import hairlineWidth = StyleSheet.hairlineWidth;
 import PokemonDetailsImage from '../../../../PokemonDetailsImage/View/PokemonDetailsImage';
+import CircleArrow from '../../../../../../../assets/svg/CircleArrow';
 
 const PokemonInformationEvo = () => {
     return (
@@ -12,7 +13,9 @@ const PokemonInformationEvo = () => {
             <View style={[styles.aboutContainer, {borderColor: GLOBAL_COLORS.leafSecond}]}>
                 <View style={styles.aboutEvo}>
                         <PokemonDetailsImage imageHeight={100} imageWidth={100}/>
+                        <CircleArrow/>
                         <PokemonDetailsImage imageHeight={100} imageWidth={100}/>
+                        <CircleArrow/>
                         <PokemonDetailsImage imageHeight={100} imageWidth={100}/>
                 </View>
                 <View style={[styles.sectionTitleContainer, {backgroundColor: GLOBAL_COLORS.leafFirst}]}>
@@ -44,6 +47,8 @@ const styles = StyleSheet.create({
     aboutEvo:{
       paddingVertical: 10,
         flexDirection: 'row',
+        justifyContent:'center',
+        alignItems: 'center'
     },
     sectionTitleContainer: {
         position: 'absolute',
