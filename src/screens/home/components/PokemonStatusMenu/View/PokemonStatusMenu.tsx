@@ -7,9 +7,9 @@
 
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import StyledText from '../../../../../components/StyledText/View/StyledText';
 import LineGraph from '../../../../../components/LineGraph/View/LineGraph';
 import {GLOBAL_FONTSIZES} from '../../../../../ui/fonts/fonts';
+import GLOBAL_COLORS from '../../../../../ui/colors/colors';
 
 const PokemonStatusMenu = () => {
     return (
@@ -20,6 +20,8 @@ const PokemonStatusMenu = () => {
                 fSize={GLOBAL_FONTSIZES.info}
                 fOpacity={0.5}
                 shortTitle={40}
+                shortFOpacity={0.5}
+                barColor={GLOBAL_COLORS.leafSecond}
             />
             <LineGraph
                 progress={0.3}
@@ -27,6 +29,8 @@ const PokemonStatusMenu = () => {
                 fSize={GLOBAL_FONTSIZES.info}
                 fOpacity={0.5}
                 shortTitle={40}
+                shortFOpacity={0.5}
+                barColor={GLOBAL_COLORS.leafSecond}
             />
             <LineGraph
                 progress={0.3}
@@ -34,6 +38,8 @@ const PokemonStatusMenu = () => {
                 fSize={GLOBAL_FONTSIZES.info}
                 fOpacity={0.5}
                 shortTitle={40}
+                shortFOpacity={0.5}
+                barColor={GLOBAL_COLORS.leafSecond}
             />
             <LineGraph
                 progress={0.3}
@@ -41,6 +47,8 @@ const PokemonStatusMenu = () => {
                 fSize={GLOBAL_FONTSIZES.info}
                 fOpacity={0.5}
                 shortTitle={40}
+                shortFOpacity={0.5}
+                barColor={GLOBAL_COLORS.leafSecond}
             />
             <LineGraph
                 progress={0.3}
@@ -48,6 +56,8 @@ const PokemonStatusMenu = () => {
                 fSize={GLOBAL_FONTSIZES.info}
                 fOpacity={0.5}
                 shortTitle={40}
+                shortFOpacity={0.5}
+                barColor={GLOBAL_COLORS.leafSecond}
             />
             <LineGraph
                 progress={0.3}
@@ -55,6 +65,8 @@ const PokemonStatusMenu = () => {
                 fSize={GLOBAL_FONTSIZES.info}
                 fOpacity={0.5}
                 shortTitle={40}
+                shortFOpacity={0.5}
+                barColor={GLOBAL_COLORS.leafSecond}
             />
             <LineGraph
                 progress={0.3}
@@ -62,6 +74,8 @@ const PokemonStatusMenu = () => {
                 fSize={GLOBAL_FONTSIZES.info}
                 fOpacity={0.5}
                 shortTitle={40}
+                shortFOpacity={0.5}
+                barColor={GLOBAL_COLORS.leafSecond}
             />
         </View>
     )

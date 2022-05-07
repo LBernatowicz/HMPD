@@ -17,7 +17,7 @@ type Props = {
     shortFColor?: string;  // colors form GLOBAL_COLORS
     shortFSize?: number; // font size from GLOBAL_FONTSIZE
     shortFOpacity?: number; // font opacity
-
+    barColor?: string;
 
 }
 
@@ -33,19 +33,22 @@ const LineGraph = ({
                        shortFont,
                        shortFColor,
                        shortFOpacity,
-                       shortFSize
+                       shortFSize,
+                       barColor,
 }: Props) => {
     return (
         <View style={styles.mainContainer}>
-            <StyledText
-                title={title}
-                font={font}
-                fColor={fColor}
-                fSize={fSize}
-                fOpacity={fOpacity}
-            />
             <View style={styles.barContainer}>
                 <View style={styles.titleContainer}>
+                    <StyledText
+                        title={title}
+                        font={font}
+                        fColor={fColor}
+                        fSize={fSize}
+                        fOpacity={fOpacity}
+                    />
+                </View>
+                <View style={styles.valueContainer}>
                     <StyledText
                         title={shortTitle}
                         font={shortFont}
@@ -57,7 +60,7 @@ const LineGraph = ({
                 <View style={{height:6}}>
                     <Progress.Bar
                         width={width && width}
-                        color={GLOBAL_COLORS.fourth}
+                        color={barColor}
                         progress={progress}
                     />
                 </View>
@@ -75,8 +78,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     titleContainer: {
+        flex:2,
+    },
+    valueContainer: {
+        flex:1,
     },
     barContainer: {
+        flex:1,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center'

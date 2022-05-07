@@ -6,13 +6,16 @@
  */
 
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, ScrollView} from 'react-native';
 import StyledText from '../../../../../components/StyledText/View/StyledText';
+import PokemonInformationText from '../components/PokemonInformationText/View/PokemonInformationText';
+import PokemonInformationEvo from '../components/PokemonInformationEvo/View/PokemonInformationEvo';
 
 const PokemonAboutMenu = () => {
     return (
         <View style={styles.mainContainer}>
-            <StyledText title={'Pokemon about menu'}/>
+            <PokemonInformationText/>
+            <PokemonInformationEvo/>
         </View>
     )
 }
@@ -22,7 +25,7 @@ const styles = StyleSheet.create({
         flex:1,
         width: '100%',
         backgroundColor: 'transparent',
-        alignItems: 'center'
+        alignItems: 'center',
     }
 })
 

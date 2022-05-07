@@ -28,6 +28,7 @@ const PokeballButton = ({title, font, fColor, fOpacity, fSize, externalStyles, o
         <SafeAreaView style={styles.mainContainer}>
             <TouchableOpacity
                 onPress={onPress}
+                style={menuVersion ? styles.buttonEnabled : styles.buttonDisabled}
             >
                 <StyledText
                     title={title}
@@ -37,7 +38,6 @@ const PokeballButton = ({title, font, fColor, fOpacity, fSize, externalStyles, o
                     fOpacity={fOpacity}
                     externalStyle={externalStyles}
                 />
-                <View style={menuVersion ? styles.buttonEnabled : styles.buttonDisabled}/>
             </TouchableOpacity>
         </SafeAreaView>
     )
@@ -48,8 +48,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     buttonEnabled: {
-        height: 2,
-        backgroundColor:GLOBAL_COLORS.white,
+        borderRadius:15,
+        backgroundColor:GLOBAL_COLORS.leafSecond,
     },
     buttonDisabled: {
         justifyContent: 'center',

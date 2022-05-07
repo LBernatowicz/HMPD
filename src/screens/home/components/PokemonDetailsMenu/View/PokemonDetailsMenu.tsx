@@ -30,25 +30,25 @@ const PokemonDetailsMenu = () => {
     return (
         <View style={styles.mainContainer}>
             <View style={styles.menuContainer}>
-                <View style={styles.buttonMenuContainer}>
+                <View style={[styles.buttonMenuContainer, {borderColor: GLOBAL_COLORS.leafSecond}]}>
                     <PokeballButton
                         title={'About'}
                         font={GLOBAL_FONTS.ROBOTO_BOLD}
-                        fColor={menuVersion === 1 ? GLOBAL_COLORS.white : GLOBAL_COLORS.primary}
+                        fColor={menuVersion === 1 ? GLOBAL_COLORS.leafFirst : GLOBAL_COLORS.leafSecond}
                         menuVersion={menuVersion === 1 && true}
                         onPress={()=>setMenuVersion(1)}
                     />
                     <PokeballButton
                         title={'Status'}
                         font={GLOBAL_FONTS.ROBOTO_BOLD}
-                        fColor={menuVersion === 2 ? GLOBAL_COLORS.white : GLOBAL_COLORS.primary}
+                        fColor={menuVersion === 2 ? GLOBAL_COLORS.leafFirst : GLOBAL_COLORS.leafSecond}
                         menuVersion={menuVersion === 2 && true}
                         onPress={()=>setMenuVersion(2)}
                     />
                     <PokeballButton
                         title={'Moves'}
                         font={GLOBAL_FONTS.ROBOTO_BOLD}
-                        fColor={menuVersion === 3 ? GLOBAL_COLORS.white : GLOBAL_COLORS.primary}
+                        fColor={menuVersion === 3 ? GLOBAL_COLORS.leafFirst : GLOBAL_COLORS.leafSecond}
                         menuVersion={menuVersion === 3 && true}
                         onPress={()=>setMenuVersion(3)}
                     />
@@ -73,9 +73,13 @@ const styles = StyleSheet.create({
         alignItems:'center'
     },
     buttonMenuContainer: {
-        marginVertical:10,
+        borderWidth: hairlineWidth,
+        borderRadius: 20,
+        marginVertical:20,
+        paddingHorizontal:5,
+        paddingVertical:5,
         flexDirection: 'row',
-        width: '80%',
+        width: '85%',
         justifyContent: 'space-between',
 
     }

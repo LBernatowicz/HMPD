@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, ScrollView} from 'react-native';
 import StyledText from '../../../../../components/StyledText/View/StyledText';
 
 const PokemonMovesMenu = () => {

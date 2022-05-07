@@ -31,7 +31,7 @@ const PokemonDetailsView = ({navigation}: Props) => {
                     navigation={navigation}
                 />
                 <View style={styles.pokemonImageContainer}>
-                    <PokemonDetailsImage/>
+                    <PokemonDetailsImage showIndex={'#001'} absolute/>
                 </View>
             <View style={styles.pokemonMenuContainer}>
                 <PokemonDetailsMenu/>
