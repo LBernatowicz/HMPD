@@ -14,6 +14,7 @@ import GLOBAL_COLORS from '../../../../../ui/colors/colors';
 import LinearGradient from 'react-native-linear-gradient';
 import {getData} from '../../../../../config/apiRequests';
 import {POKEMON} from '../../../../../config/axiosInstances';
+import {handlePokemonIndex, handlePokemonTypeColor, handlePokemonTypeElemental} from '../../../../../helpers/helpersFunction';
 
 type Props = {
     title: string;
@@ -25,56 +26,15 @@ const PokemonCard = ({title, pokemonIndex, navigation}: Props) => {
     const [pokemonDetails, setPokemonDetails] = useState<any>()
     const [pokemonType, setPokemonType] = useState<any>()
 
-
-    const handlePokemonIndex = (idx: number) => {
-        if (idx < 10) {return `#00${idx.toString()}`}
-        else if ((idx > 9 && idx < 100)) { return `#0${idx.toString()}`}
-        else if (idx > 99) {return `#${idx.toString()}`}
-        else {return ''}
-    }
-
-    const handlePokemonTypeElemental = (type: string) => {
-        switch (type) {
-            case 'grass':
-                return require('../../../../../assets/pictures/leafType.png')
-            case 'fire':
-                return require('../../../../../assets/pictures/fireType.png')
-            case 'water':
-                return require('../../../../../assets/pictures/waterType.png')
-            case 'bug':
-                return require('../../../../../assets/pictures/posionType.png')
-            case 'normal':
-                return require('../../../../../assets/pictures/rockType.png')
-            default:
-                return require('../../../../../assets/pictures/leafType.png')
-        }
-    }
-    const handlePokemonTypeColor = (type: string) => {
-        switch (type) {
-            case 'grass':
-                return [GLOBAL_COLORS.leafFirst, GLOBAL_COLORS.leafSecond]
-            case 'fire':
-                return [GLOBAL_COLORS.fireFirst, GLOBAL_COLORS.fireSecond]
-            case 'water':
-                return [GLOBAL_COLORS.waterFirst, GLOBAL_COLORS.waterSecond]
-            case 'bug':
-                return [GLOBAL_COLORS.bugFirst, GLOBAL_COLORS.bugSecond]
-            case 'normal':
-                return [GLOBAL_COLORS.normalFirst, GLOBAL_COLORS.normalSecond]
-            default:
-                return [GLOBAL_COLORS.leafFirst, GLOBAL_COLORS.leafSecond]
-        }
-    }
-
     const getPokemonDetails = async() => {
         const response = await getData(`${POKEMON}/${pokemonIndex}`)
         setPokemonType(response?.data.types[0].type.name)
         setPokemonDetails(response?.data)
+        //console.log('@@@@@@@@@',response?.data.stats[0].base_stat)
     }
 
     useEffect(()=>{
         getPokemonDetails()
-        console.log('details', pokemonDetails)
     },[])
 
     const PokemonImage = {uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonIndex}.png`}
@@ -82,7 +42,10 @@ const PokemonCard = ({title, pokemonIndex, navigation}: Props) => {
     return (
         <TouchableOpacity
             style={styles.mainContainer}
-            onPress={()=>navigation.navigate('PokemonDetails')}
+            onPress={()=>navigation.navigate('PokemonDetails', {
+                details: pokemonDetails,
+                index: pokemonIndex,
+            })}
         >
             <LinearGradient colors={handlePokemonTypeColor(pokemonType)}
                 style={styles.cardBGContainer}>

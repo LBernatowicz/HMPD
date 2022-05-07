@@ -6,10 +6,14 @@
  */
 
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet,} from 'react-native';
 import StyledText from '../../../../../components/StyledText/View/StyledText';
 
-const PokemonMovesMenu = () => {
+type Props = {
+    pokemonType: string;
+}
+
+const PokemonMovesMenu = ({pokemonType}: Props) => {
     return (
         <View style={styles.mainContainer}>
             <StyledText title={'Pokemon moves menu'}/>

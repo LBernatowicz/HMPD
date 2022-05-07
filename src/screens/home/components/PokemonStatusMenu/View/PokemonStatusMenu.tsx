@@ -5,13 +5,19 @@
  * 22.04.2022
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, StyleSheet} from 'react-native';
-import StyledText from '../../../../../components/StyledText/View/StyledText';
 import LineGraph from '../../../../../components/LineGraph/View/LineGraph';
 import {GLOBAL_FONTSIZES} from '../../../../../ui/fonts/fonts';
+import {handlePokemonSecondColor, handleStatesArray} from '../../../../../helpers/helpersFunction';
 
-const PokemonStatusMenu = () => {
+type Props = {
+    pokemonType: string
+    pokemonDetails: any
+}
+
+const PokemonStatusMenu = ({pokemonType, pokemonDetails}: Props) => {
+    // console.log('@@@@@!@@@@', pokemonDetails.stats)
     return (
         <View style={styles.mainContainer}>
             <LineGraph
@@ -20,6 +26,8 @@ const PokemonStatusMenu = () => {
                 fSize={GLOBAL_FONTSIZES.info}
                 fOpacity={0.5}
                 shortTitle={40}
+                shortFOpacity={0.5}
+                barColor={handlePokemonSecondColor(pokemonType)}
             />
             <LineGraph
                 progress={0.3}
@@ -27,6 +35,8 @@ const PokemonStatusMenu = () => {
                 fSize={GLOBAL_FONTSIZES.info}
                 fOpacity={0.5}
                 shortTitle={40}
+                shortFOpacity={0.5}
+                barColor={handlePokemonSecondColor(pokemonType)}
             />
             <LineGraph
                 progress={0.3}
@@ -34,6 +44,8 @@ const PokemonStatusMenu = () => {
                 fSize={GLOBAL_FONTSIZES.info}
                 fOpacity={0.5}
                 shortTitle={40}
+                shortFOpacity={0.5}
+                barColor={handlePokemonSecondColor(pokemonType)}
             />
             <LineGraph
                 progress={0.3}
@@ -41,6 +53,8 @@ const PokemonStatusMenu = () => {
                 fSize={GLOBAL_FONTSIZES.info}
                 fOpacity={0.5}
                 shortTitle={40}
+                shortFOpacity={0.5}
+                barColor={handlePokemonSecondColor(pokemonType)}
             />
             <LineGraph
                 progress={0.3}
@@ -48,6 +62,8 @@ const PokemonStatusMenu = () => {
                 fSize={GLOBAL_FONTSIZES.info}
                 fOpacity={0.5}
                 shortTitle={40}
+                shortFOpacity={0.5}
+                barColor={handlePokemonSecondColor(pokemonType)}
             />
             <LineGraph
                 progress={0.3}
@@ -55,6 +71,8 @@ const PokemonStatusMenu = () => {
                 fSize={GLOBAL_FONTSIZES.info}
                 fOpacity={0.5}
                 shortTitle={40}
+                shortFOpacity={0.5}
+                barColor={handlePokemonSecondColor(pokemonType)}
             />
             <LineGraph
                 progress={0.3}
@@ -62,6 +80,8 @@ const PokemonStatusMenu = () => {
                 fSize={GLOBAL_FONTSIZES.info}
                 fOpacity={0.5}
                 shortTitle={40}
+                shortFOpacity={0.5}
+                barColor={handlePokemonSecondColor(pokemonType)}
             />
         </View>
     )
