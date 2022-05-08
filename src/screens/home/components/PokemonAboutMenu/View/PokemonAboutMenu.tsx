@@ -12,14 +12,15 @@ import PokemonInformationText from '../components/PokemonInformationText/View/Po
 import PokemonInformationEvo from '../components/PokemonInformationEvo/View/PokemonInformationEvo';
 
 type Props = {
-    pokemonType: string
+    pokemonType: string;
+    pokemonIndex: number | string;
 }
 
-const PokemonAboutMenu = ({pokemonType}: Props) => {
+const PokemonAboutMenu = ({pokemonType, pokemonIndex}: Props) => {
     return (
         <View style={styles.mainContainer}>
             <PokemonInformationText pokemonType={pokemonType}/>
-            <PokemonInformationEvo pokemonType={pokemonType}/>
+            <PokemonInformationEvo pokemonType={pokemonType} pokemonIndex={pokemonIndex}/>
         </View>
     )
 }

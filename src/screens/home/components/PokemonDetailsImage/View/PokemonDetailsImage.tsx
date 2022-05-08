@@ -10,9 +10,10 @@ type Props = {
     showIndex?: string;
     absolute?: boolean;
     image?: string;
+    index?: number | string
 }
 
-const PokemonDetailsImage = ({imageWidth, imageHeight, showIndex, absolute, image}: Props) => {
+const PokemonDetailsImage = ({imageWidth, imageHeight, showIndex, absolute, image, index}: Props) => {
     return (
         <View style={styles.mainContainer}>
             <View style={styles.indexText}>

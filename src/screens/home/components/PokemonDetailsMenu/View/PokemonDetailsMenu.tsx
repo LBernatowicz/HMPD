@@ -12,9 +12,10 @@ import {handlePokemonFirstColor, handlePokemonSecondColor} from '../../../../../
 type Props = {
     pokemonType?: string;
     pokemonDetails?: object;
+    pokemonIndex?: number;
 }
 
-const PokemonDetailsMenu = ({pokemonDetails, pokemonType}: Props) => {
+const PokemonDetailsMenu = ({pokemonDetails, pokemonType, pokemonIndex}: Props) => {
     const [menuVersion, setMenuVersion] = useState<number>(1)
 
     //handle menu version
@@ -23,6 +24,7 @@ const PokemonDetailsMenu = ({pokemonDetails, pokemonType}: Props) => {
             case 1:
                 return <PokemonAboutMenu
                             pokemonType={pokemonType ? pokemonType : ''}
+                            pokemonIndex={pokemonIndex ? pokemonIndex : 1}
                     />
             case 2:
                 return <PokemonStatusMenu

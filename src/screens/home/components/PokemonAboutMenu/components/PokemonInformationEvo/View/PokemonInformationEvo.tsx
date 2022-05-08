@@ -8,20 +8,23 @@ import PokemonDetailsImage from '../../../../PokemonDetailsImage/View/PokemonDet
 import CircleArrow from '../../../../../../../assets/svg/CircleArrow';
 import {handlePokemonFirstColor, handlePokemonSecondColor} from '../../../../../../../helpers/helpersFunction';
 
+const imageLink = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork'
+
 type Props = {
     pokemonType: string;
+    pokemonIndex: number;
 }
 
-const PokemonInformationEvo = ({pokemonType}: Props) => {
+const PokemonInformationEvo = ({pokemonType, pokemonIndex}: Props) => {
     return (
         <View style={styles.mainContainer}>
             <View style={[styles.aboutContainer, {borderColor: handlePokemonSecondColor(pokemonType)}]}>
                 <View style={styles.aboutEvo}>
-                        <PokemonDetailsImage imageHeight={100} imageWidth={100}/>
+                        <PokemonDetailsImage imageHeight={100} imageWidth={100} image={`${imageLink}/${pokemonIndex}.png`}/>
                         <CircleArrow/>
-                        <PokemonDetailsImage imageHeight={100} imageWidth={100}/>
+                        <PokemonDetailsImage imageHeight={100} imageWidth={100} image={`${imageLink}/${pokemonIndex+1}.png`}/>
                         <CircleArrow/>
-                        <PokemonDetailsImage imageHeight={100} imageWidth={100}/>
+                        <PokemonDetailsImage imageHeight={100} imageWidth={100} image={`${imageLink}/${pokemonIndex+2}.png`}/>
                 </View>
                 <View style={[styles.sectionTitleContainer, {backgroundColor: handlePokemonFirstColor(pokemonType)}]}>
                     <StyledText

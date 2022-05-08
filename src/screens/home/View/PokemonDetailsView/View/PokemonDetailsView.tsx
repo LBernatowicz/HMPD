@@ -32,10 +32,6 @@ const PokemonDetailsView = ({navigation, route}: Props) => {
         setPokemonIndex(route.params.index)
     },[])
 
-    useEffect(() => {
-       // handleStatesArray(route.params.details)
-    }, [])
-
 
     return (
         <LinearGradient colors={handlePokemonTypeColor(route.params.details.types[0].type.name)} style={styles.mainContainer}>
@@ -58,6 +54,7 @@ const PokemonDetailsView = ({navigation, route}: Props) => {
                 <PokemonDetailsMenu
                     pokemonType={route.params.details.types[0].type.name}
                     pokemonDetails={route.params.details}
+                    pokemonIndex={route.params.index}
                 />
             </View>
         </LinearGradient>

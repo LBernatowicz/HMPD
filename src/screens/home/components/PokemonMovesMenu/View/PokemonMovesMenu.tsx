@@ -25,39 +25,26 @@ const PokemonMovesMenu = ({pokemonType, pokemonDetails}: Props) => {
     const [pokemonMoves, setPokemonMoves] = useState<Array<object>>([])
     useEffect(() => {
       setPokemonMoves(handlePokemonMoves(pokemonDetails.moves));
-      console.log(handlePokemonMoves(pokemonDetails.moves).map(([item]: any) => item.name))
+      //console.log(handlePokemonMoves(pokemonDetails.moves).map(([item]: any) => item.name))
     },[])
-
-    const renderItem = ({ item }: any) => (
-        <View style={[styles.moves, {backgroundColor:handlePokemonSecondColor(pokemonType)}]}>
-                    <StyledText
-                        title={item.name.toUpperCase()}
-                        font={GLOBAL_FONTS.ROBOTO_BOLD}
-                        fSize={GLOBAL_FONTSIZES.description}
-                        fColor={handlePokemonFirstColor(pokemonType)}
-                     />
-                 </View>
-    );
 
     return (
         <View style={styles.mainContainer}>
-            <ScrollView showsVerticalScrollIndicator={false} style={styles.movesContainer}>
+            <ScrollView style={styles.movesContainer} showsVerticalScrollIndicator={false}>
+
+                {/*todo: need to improve this. change map to 3 column FlatList*/}
                 {pokemonMoves &&
-                    <FlatList
-                        data={pokemonMoves}
-                        renderItem={renderItem}
-                        keyExtractor={(pokemonDetails.moves).map(([item]: any) => item.name)}
-                    />
-                    // pokemonMoves.map(([item]: any) => {
-                    //     return <View style={[styles.moves, {backgroundColor:handlePokemonSecondColor(pokemonType)}]}>
-                    //         <StyledText
-                    //             title={item.name.toUpperCase()}
-                    //             font={GLOBAL_FONTS.ROBOTO_BOLD}
-                    //             fSize={GLOBAL_FONTSIZES.description}
-                    //             fColor={handlePokemonFirstColor(pokemonType)}
-                    //         />
-                    //     </View>
-                    }
+                    pokemonMoves.map(([item]: any) => {
+                        return <View style={[styles.moves, {backgroundColor: handlePokemonSecondColor(pokemonType)}]}>
+                            <StyledText
+                                title={item.name.toUpperCase()}
+                                font={GLOBAL_FONTS.ROBOTO_BOLD}
+                                fSize={GLOBAL_FONTSIZES.description}
+                                fColor={handlePokemonFirstColor(pokemonType)}
+                            />
+                        </View>
+                    })
+                }
             </ScrollView>
         </View>
     )
@@ -72,6 +59,7 @@ const styles = StyleSheet.create({
     },
     movesContainer: {
         width: '90%',
+        flexDirection: 'column'
     },
     moves: {
         flexDirection: 'row',
