@@ -31,75 +31,14 @@ const PokemonStatusMenu = ({pokemonType, pokemonDetails}: Props) => {
                             progress={(item.value/150)}
                             title={item.name.toUpperCase()}
                             fSize={GLOBAL_FONTSIZES.info}
-                            fOpacity={0.5}
+                            fOpacity={1}
                             shortTitle={item.value}
-                            shortFOpacity={0.5}
+                            shortFOpacity={1}
+                            fColor={handlePokemonSecondColor(pokemonType)}
+                            shortFColor={handlePokemonSecondColor(pokemonType)}
                             barColor={handlePokemonSecondColor(pokemonType)}
                 />
             })}
-            {/*<LineGraph*/}
-            {/*    progress={0.3}*/}
-            {/*    title={'HP'}*/}
-            {/*    fSize={GLOBAL_FONTSIZES.info}*/}
-            {/*    fOpacity={0.5}*/}
-            {/*    shortTitle={40}*/}
-            {/*    shortFOpacity={0.5}*/}
-            {/*    barColor={handlePokemonSecondColor(pokemonType)}*/}
-            {/*/>*/}
-            {/*<LineGraph*/}
-            {/*    progress={0.3}*/}
-            {/*    title={'Attack'}*/}
-            {/*    fSize={GLOBAL_FONTSIZES.info}*/}
-            {/*    fOpacity={0.5}*/}
-            {/*    shortTitle={40}*/}
-            {/*    shortFOpacity={0.5}*/}
-            {/*    barColor={handlePokemonSecondColor(pokemonType)}*/}
-            {/*/>*/}
-            {/*<LineGraph*/}
-            {/*    progress={0.3}*/}
-            {/*    title={'Defence'}*/}
-            {/*    fSize={GLOBAL_FONTSIZES.info}*/}
-            {/*    fOpacity={0.5}*/}
-            {/*    shortTitle={40}*/}
-            {/*    shortFOpacity={0.5}*/}
-            {/*    barColor={handlePokemonSecondColor(pokemonType)}*/}
-            {/*/>*/}
-            {/*<LineGraph*/}
-            {/*    progress={0.3}*/}
-            {/*    title={'Sp. Atk'}*/}
-            {/*    fSize={GLOBAL_FONTSIZES.info}*/}
-            {/*    fOpacity={0.5}*/}
-            {/*    shortTitle={40}*/}
-            {/*    shortFOpacity={0.5}*/}
-            {/*    barColor={handlePokemonSecondColor(pokemonType)}*/}
-            {/*/>*/}
-            {/*<LineGraph*/}
-            {/*    progress={0.3}*/}
-            {/*    title={'Sp. Def'}*/}
-            {/*    fSize={GLOBAL_FONTSIZES.info}*/}
-            {/*    fOpacity={0.5}*/}
-            {/*    shortTitle={40}*/}
-            {/*    shortFOpacity={0.5}*/}
-            {/*    barColor={handlePokemonSecondColor(pokemonType)}*/}
-            {/*/>*/}
-            {/*<LineGraph*/}
-            {/*    progress={0.3}*/}
-            {/*    title={'Speed'}*/}
-            {/*    fSize={GLOBAL_FONTSIZES.info}*/}
-            {/*    fOpacity={0.5}*/}
-            {/*    shortTitle={40}*/}
-            {/*    shortFOpacity={0.5}*/}
-            {/*    barColor={handlePokemonSecondColor(pokemonType)}*/}
-            {/*/>*/}
-            {/*<LineGraph*/}
-            {/*    progress={0.3}*/}
-            {/*    title={'Total'}*/}
-            {/*    fSize={GLOBAL_FONTSIZES.info}*/}
-            {/*    fOpacity={0.5}*/}
-            {/*    shortTitle={40}*/}
-            {/*    shortFOpacity={0.5}*/}
-            {/*    barColor={handlePokemonSecondColor(pokemonType)}*/}
-            {/*/>*/}
         </View>
     )
 }

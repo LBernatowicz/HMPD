@@ -1,6 +1,6 @@
 import GLOBAL_COLORS from '../ui/colors/colors';
-import * as buffer from 'buffer';
 
+//fix pokemon index to original position
 export const handlePokemonIndex = (idx: number) => {
     if (idx < 10) {return `#00${idx.toString()}`}
     else if ((idx > 9 && idx < 100)) { return `#0${idx.toString()}`}
@@ -8,6 +8,7 @@ export const handlePokemonIndex = (idx: number) => {
     else {return ''}
 }
 
+// add correct type color gradient
 export const handlePokemonTypeColor = (type: string) => {
     switch (type) {
         case 'grass':
@@ -25,6 +26,7 @@ export const handlePokemonTypeColor = (type: string) => {
     }
 }
 
+// add correct second color for each type
 export const handlePokemonSecondColor = (type: string) => {
     switch (type) {
         case 'grass':
@@ -42,6 +44,7 @@ export const handlePokemonSecondColor = (type: string) => {
     }
 }
 
+// add correct first color for each type
 export const handlePokemonFirstColor = (type: string) => {
     switch (type) {
         case 'grass':
@@ -59,6 +62,7 @@ export const handlePokemonFirstColor = (type: string) => {
     }
 }
 
+// add correct type label for Pokémon
 export const handlePokemonTypeElemental = (type: string) => {
     switch (type) {
         case 'grass':
@@ -76,13 +80,22 @@ export const handlePokemonTypeElemental = (type: string) => {
     }
 }
 
+// make new array of object with stats name and value of this stat
 export const handleStatesArray = (detailsArray: any) => {
-    const rebuildArray = detailsArray.map((item: any) => {
+    return detailsArray.map((item: any) => {
         const bufferArray = []
-        bufferArray.push({'name':item.stat.name, 'value':item.base_stat})
+        bufferArray.push({'name': item.stat.name, 'value': item.base_stat})
         return bufferArray
-        })
-    return rebuildArray
+    })
     };
+
+//simplify array with pokemon attack moves
+export const handlePokemonMoves = (detailsArray: any) => {
+    return detailsArray.map((item: any) => {
+        const bufferArray = []
+        bufferArray.push({'name': item.move.name, 'value': item.move.url})
+        return bufferArray
+    })
+};
 
 

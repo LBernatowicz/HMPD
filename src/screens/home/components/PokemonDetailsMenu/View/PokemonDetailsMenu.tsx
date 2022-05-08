@@ -32,6 +32,7 @@ const PokemonDetailsMenu = ({pokemonDetails, pokemonType}: Props) => {
             case 3:
                 return <PokemonMovesMenu
                             pokemonType={pokemonType ? pokemonType : ''}
+                            pokemonDetails={pokemonDetails}
                     />
             default:
                 return <StyledText title={'4'}/>
