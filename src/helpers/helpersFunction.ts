@@ -1,4 +1,5 @@
 import GLOBAL_COLORS from '../ui/colors/colors';
+import * as buffer from 'buffer';
 
 export const handlePokemonIndex = (idx: number) => {
     if (idx < 10) {return `#00${idx.toString()}`}
@@ -76,7 +77,12 @@ export const handlePokemonTypeElemental = (type: string) => {
 }
 
 export const handleStatesArray = (detailsArray: any) => {
-    console.log(detailsArray.flat())
+    const rebuildArray = detailsArray.map((item: any) => {
+        const bufferArray = []
+        bufferArray.push({'name':item.stat.name, 'value':item.base_stat})
+        return bufferArray
+        })
+    return rebuildArray
     };
 
 
